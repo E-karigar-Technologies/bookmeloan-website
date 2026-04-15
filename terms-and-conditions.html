@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Me Loan - Terms & Conditions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind = {
+        config: {
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ["Inter", "ui-sans-serif", "system-ui"],
+              },
+              colors: {
+                brand: {
+                  DEFAULT: "#14b8a6",
+                  dark: "#0f766e",
+                  soft: "#ecfdf5",
+                },
+              },
+              boxShadow: {
+                soft: "0 18px 40px rgba(16, 185, 129, 0.12)",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .grid-dots {
+        background-image: radial-gradient(
+          rgba(20, 184, 166, 0.12) 1px,
+          transparent 1px
+        );
+        background-size: 20px 20px;
+      }
+    </style>
+  </head>
+  <body class="font-sans text-slate-900 bg-white">
+    <div class="relative overflow-hidden">
+      <div
+        class="pointer-events-none absolute -top-24 -left-20 h-64 w-64 rounded-full bg-emerald-100/70 blur-3xl"
+      ></div>
+      <div
+        class="pointer-events-none absolute top-32 right-[-120px] h-96 w-96 rounded-full bg-emerald-100/70 blur-3xl"
+      ></div>
+
+      <site-navbar></site-navbar>
+
+      <main>
+        <section class="relative pb-12 section-grid pt-24 md:pt-32">
+          <div class="absolute inset-0 grid-dots opacity-70"></div>
+          <div class="relative mx-auto max-w-5xl px-6 text-center">
+            <h1
+              class="text-3xl font-extrabold text-slate-900 sm:text-4xl md:text-5xl"
+            >
+              Terms & <span class="text-brand">Conditions</span>
+            </h1>
+            <p
+              class="mx-auto mt-4 max-w-2xl text-sm text-slate-600 sm:text-base"
+            >
+              These terms govern your use of Book Me Loan services, platform
+              access, and communication.
+            </p>
+            <p class="mt-3 text-xs text-slate-500">
+              Effective date: February 3, 2026
+            </p>
+          </div>
+        </section>
+
+        <section class="py-10">
+          <div class="mx-auto max-w-5xl px-6">
+            <div
+              class="space-y-8 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm"
+            >
+              <div>
+                <h2 class="text-lg font-semibold">Eligibility</h2>
+                <p class="mt-2 text-sm text-slate-600">
+                  You must be at least 18 years old and provide accurate
+                  information to access our services. We may request
+                  verification documents to confirm identity and eligibility.
+                </p>
+              </div>
+
+              <div>
+                <h2 class="text-lg font-semibold">Platform Use</h2>
+                <p class="mt-2 text-sm text-slate-600">
+                  You agree not to misuse the platform, attempt unauthorized
+                  access, or submit false information. We reserve the right to
+                  suspend accounts that violate these terms or applicable laws.
+                </p>
+              </div>
+
+              <div>
+                <h2 class="text-lg font-semibold">
+                  Loan Application & Approval
+                </h2>
+                <p class="mt-2 text-sm text-slate-600">
+                  Loan offers are subject to lender policies, eligibility
+                  checks, and verification. Book Me Loan does not guarantee
+                  approval or disbursal.
+                </p>
+              </div>
+
+              <div>
+                <h2 class="text-lg font-semibold">Fees & Charges</h2>
+                <p class="mt-2 text-sm text-slate-600">
+                  Any processing fees or charges will be disclosed during
+                  application. Additional fees may apply based on lender or
+                  regulatory guidelines.
+                </p>
+              </div>
+
+              <div>
+                <h2 class="text-lg font-semibold">Limitation of Liability</h2>
+                <p class="mt-2 text-sm text-slate-600">
+                  We are not liable for delays caused by third parties or
+                  circumstances beyond our control. Our liability is limited to
+                  the extent permitted by law.
+                </p>
+              </div>
+
+              <div>
+                <h2 class="text-lg font-semibold">Contact</h2>
+                <p class="mt-2 text-sm text-slate-600">
+                  If you have questions about these terms, contact
+                  <span class="font-semibold text-emerald-700"
+                    >support@bookmeloan.com</span
+                  >.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <site-footer></site-footer>
+    </div>
+
+    <script src="./components.js"></script>
+  </body>
+</html>

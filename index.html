@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Me Loan - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind = {
+        config: {
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ["Inter", "ui-sans-serif", "system-ui"],
+              },
+              colors: {
+                brand: {
+                  DEFAULT: "#14b8a6",
+                  dark: "#0f766e",
+                  soft: "#ecfdf5",
+                },
+              },
+              boxShadow: {
+                soft: "0 18px 40px rgba(16, 185, 129, 0.12)",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --hero-image: none; /* Replace with url('your-hero.jpg') */
+      }
+
+      .hero-bg {
+        background-image: var(--hero-image);
+        background-size: cover;
+        background-position: center;
+      }
+
+      .grid-dots {
+        background-image: radial-gradient(
+          rgba(20, 184, 166, 0.1) 1px,
+          transparent 1px
+        );
+        background-size: 20px 20px;
+      }
+
+      .section-grid {
+        background-image:
+          linear-gradient(rgba(15, 118, 110, 0.06) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(15, 118, 110, 0.06) 1px, transparent 1px);
+        background-size: 28px 28px;
+      }
+    </style>
+  </head>
+  <body class="font-sans text-slate-900 bg-white">
+    <div class="relative">
+      <div
+        class="pointer-events-none absolute -top-32 -left-32 h-80 w-80 rounded-full bg-emerald-100/70 blur-3xl"
+      ></div>
+      <div
+        class="pointer-events-none absolute top-24 right-[-120px] h-96 w-96 rounded-full bg-emerald-100/70 blur-3xl"
+      ></div>
+
+      <site-navbar active="home"></site-navbar>
+
+      <main>
+        <section class="relative section-grid pt-24 md:pt-32 hero-bg">
+          <div class="absolute inset-0 grid-dots opacity-70"></div>
+          <div
+            class="relative mx-auto flex w-full max-w-6xl flex-col items-center gap-10 px-6 pb-20 pt-10 text-center md:pb-24 md:pt-14"
+          >
+            <span
+              class="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-emerald-50 px-4 py-1 text-xs font-semibold text-emerald-700"
+            >
+              <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+              India’s #1 Loan Booking Platform
+            </span>
+
+            <div class="max-w-3xl">
+              <h1
+                class="text-3xl font-extrabold text-slate-900 sm:text-4xl md:text-5xl"
+              >
+                Your Dream Loan,
+                <span class="block text-brand">Just a Click Away</span>
+              </h1>
+              <p class="mt-4 text-sm text-slate-600 sm:text-base">
+                Get instant approval on personal, business, vehicle, education
+                and home loans at the best interest rates in India.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-4">
+              <button
+                class="rounded-full bg-emerald-400 px-6 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-emerald-500"
+              >
+                Apply for Loan Now →
+              </button>
+
+              <button
+                class="rounded-full border border-emerald-200 px-6 py-2 text-sm font-semibold text-emerald-700 transition hover:border-emerald-300"
+              >
+                Check Eligibility
+              </button>
+
+              <!-- Naya button -->
+            </div>
+
+            <!-- Stats section numbers -->
+            <div
+              class="flex flex-wrap items-center justify-center gap-8 text-center"
+            >
+              <div>
+                <p class="text-lg font-bold text-emerald-500">₹500 Cr</p>
+                <p class="text-[10px] uppercase tracking-wide text-slate-500">
+                  Loans Disbursed
+                </p>
+              </div>
+              <div>
+                <p class="text-lg font-bold text-emerald-500">50 K+</p>
+                <p class="text-[10px] uppercase tracking-wide text-slate-500">
+                  Happy Customers
+                </p>
+              </div>
+              <div>
+                <p class="text-lg font-bold text-emerald-500">8.5%</p>
+                <p class="text-[10px] uppercase tracking-wide text-slate-500">
+                  Interest Rate From
+                </p>
+              </div>
+              <div>
+                <p class="text-lg font-bold text-emerald-500">24 Hrs</p>
+                <p class="text-[10px] uppercase tracking-wide text-slate-500">
+                  Quick Approval
+                </p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center justify-center gap-4">
+              <!-- Google Play -->
+              <a
+                href="#"
+                class="flex items-center gap-3 rounded-full bg-black px-5 py-2 text-xs font-semibold text-white hover:bg-gray-900 transition"
+              >
+                <!-- Google Play SVG Logo -->
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3 2v20l15-10L3 2z" />
+                </svg>
+
+                Google Play
+              </a>
+
+              <!-- App Store -->
+              <a
+                href="#"
+                class="flex items-center gap-3 rounded-full bg-black px-5 py-2 text-xs font-semibold text-white hover:bg-gray-900 transition"
+              >
+                <!-- Apple SVG Logo -->
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                  <path
+                    d="M16.365 1.43c0 1.14-.465 2.23-1.28 3.04-.86.86-2.08 1.35-3.21 1.27-.14-1.13.46-2.27 1.32-3.08.86-.81 2.22-1.42 3.17-1.23zM20.55 17.21c-.37.86-.82 1.65-1.36 2.39-.75 1.02-1.65 2.29-2.91 2.31-1.23.02-1.63-.79-3.05-.79-1.42 0-1.87.77-3.03.81-1.2.05-2.12-1.2-2.87-2.21-1.53-2.08-2.7-5.88-1.13-8.61.78-1.36 2.18-2.22 3.71-2.24 1.16-.02 2.26.81 3.05.81.78 0 2.24-1 3.78-.85.64.03 2.43.26 3.58 1.95-.09.06-2.14 1.25-2.12 3.74.02 3.01 2.63 4.01 2.66 4.02z"
+                  />
+                </svg>
+
+                App Store
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-14">
+          <div class="mx-auto max-w-6xl px-6 text-center">
+            <h2 class="text-2xl font-bold text-slate-900 md:text-3xl">
+              Loans for Every <span class="text-brand">Dream</span>
+            </h2>
+            <p class="mx-auto mt-2 max-w-xl text-sm text-slate-600">
+              Choose from our wide range of loan products designed to meet your
+              specific needs.
+            </p>
+
+            <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <!-- Home Loan -->
+              <div
+                class="rounded-2xl border border-emerald-50 bg-white p-6 text-left shadow-sm"
+              >
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500"
+                >
+                  <!-- New Home Icon -->
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3 12l9-9 9 9v9a3 3 0 0 1-3 3h-3a3 3 0 0 1-3-3v-6H6v6a3 3 0 0 1-3 3H3v-9z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">Home Loan</h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Make your dream home a reality with our attractive rates.
+                </p>
+                <div class="mt-4 text-[10px] uppercase flex flex-col gap-1">
+                  <div class="flex justify-between">
+                    <span class="text-slate-500">Starting</span>
+                    <span class="text-emerald-500 font-semibold">8.5% P.A</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-500">From</span>
+                    <span class="text-emerald-500 font-semibold">Onwards</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Business Loan -->
+              <div
+                class="rounded-2xl border border-emerald-50 bg-white p-6 text-left shadow-sm"
+              >
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500"
+                >
+                  <!-- New Business Icon -->
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3 12h18M12 3v18M6 6h12v12H6z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">Business Loan</h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Fuel your business growth with flexible repayment options.
+                </p>
+                <div class="mt-4 text-[10px] uppercase flex flex-col gap-1">
+                  <div class="flex justify-between">
+                    <span class="text-slate-500">Starting</span>
+                    <span class="text-emerald-500 font-semibold">11% P.A</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-500">From</span>
+                    <span class="text-emerald-500 font-semibold">Onwards</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Vehicle Loan -->
+              <div
+                class="rounded-2xl border border-emerald-50 bg-white p-6 text-left shadow-sm"
+              >
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500"
+                >
+                  <!-- New Vehicle Icon -->
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M3 13l2-5h14l2 5M5 21h2a2 2 0 0 0 2-2v-3H5v3a2 2 0 0 0 2 2zM17 21h2a2 2 0 0 0 2-2v-3h-6v3a2 2 0 0 0 2 2z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">Vehicle Loan</h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Drive your dream car or bike home with easy EMIs.
+                </p>
+                <div class="mt-4 text-[10px] uppercase flex flex-col gap-1">
+                  <div class="flex justify-between">
+                    <span class="text-slate-500">Starting</span>
+                    <span class="text-emerald-500 font-semibold">8.5% P.A</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-500">From</span>
+                    <span class="text-emerald-500 font-semibold">Onwards</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Education Loan -->
+              <div
+                class="rounded-2xl border border-emerald-50 bg-white p-6 text-left shadow-sm"
+              >
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500"
+                >
+                  <!-- New Education Icon -->
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 14l9-5-9-5-9 5 9 5z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M12 14l6.16-3.422v6.844L12 20l-6.16-3.578v-6.844L12 14z"
+                    />
+                  </svg>
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">Education Loan</h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Invest in your future with funding for studies in India &
+                  abroad.
+                </p>
+                <div class="mt-4 text-[10px] uppercase flex flex-col gap-1">
+                  <div class="flex justify-between">
+                    <span class="text-slate-500">Starting</span>
+                    <span class="text-emerald-500 font-semibold">9% P.A</span>
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-500">From</span>
+                    <span class="text-emerald-500 font-semibold">Onwards</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Personal Loan -->
+              <div
+                class="rounded-2xl border border-emerald-50 bg-white p-6 text-left shadow-sm md:col-span-2 lg:col-span-1"
+              >
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500"
+                >
+                  <!-- New Personal Icon -->
+                  <svg
+                    class="h-6 w-6"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle cx="12" cy="7" r="4" />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6 21v-2a6 6 0 0 1 12 0v2"
+                    />
+                  </svg>
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">Personal Loan</h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Quick loans for your personal needs with minimal
+                  documentation.
+                </p>
+                <div class="mt-4 text-[10px] uppercase flex flex-col gap-1">
+                  <div class="flex justify-between">
+                    <span class="text-slate-500">Starting</span>
+                    <span class="text-emerald-500 font-semibold"
+                      >10.5% P.A</span
+                    >
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-slate-500">From</span>
+                    <span class="text-emerald-500 font-semibold">Onwards</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-16">
+          <div class="mx-auto max-w-6xl px-6 text-center">
+            <h2 class="text-2xl font-bold md:text-3xl">
+              <span style="color: black">Why Choose</span>
+              <span style="color: #14b8a6">Book Me Loan</span>
+            </h2>
+
+            <p class="mx-auto mt-2 max-w-xl text-sm text-slate-600">
+              Experience the future of loan booking with our cutting-edge
+              features.
+            </p>
+
+            <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              <div
+                class="rounded-2xl border border-emerald-50 bg-white p-6 text-left shadow-sm"
+              >
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-brand"
+                >
+                  ⚡
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">Instant Approval</h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Get loan approval within 24 hours with our AI-powered
+                  verification.
+                </p>
+              </div>
+              <div
+                class="rounded-2xl border border-emerald-50 bg-white p-6 text-left shadow-sm"
+              >
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-brand"
+                >
+                  📉
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">
+                  Lowest Interest Rates
+                </h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Competitive rates starting from 8.5% p.a. across all
+                  categories.
+                </p>
+              </div>
+              <div
+                class="rounded-2xl border border-emerald-50 bg-white p-6 text-left shadow-sm"
+              >
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-brand"
+                >
+                  🔒
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">100% Secure</h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Bank-grade security with encrypted data protection for all
+                  transactions.
+                </p>
+              </div>
+              <div
+                class="rounded-2xl border border-emerald-50 bg-white p-6 text-left shadow-sm"
+              >
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-brand"
+                >
+                  🗓️
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">Flexible Tenure</h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Choose repayment tenure from 12 to 240 months at your
+                  convenience.
+                </p>
+              </div>
+              <div
+                class="rounded-2xl border border-emerald-50 bg-white p-6 text-left shadow-sm"
+              >
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-brand"
+                >
+                  ✅
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">
+                  Minimal Documentation
+                </h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Simple process with minimal paperwork and hassle-free
+                  verification.
+                </p>
+              </div>
+              <div
+                class="rounded-2xl border border-emerald-50 bg-white p-6 text-left shadow-sm"
+              >
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-brand"
+                >
+                  ☎️
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">24/7 Support</h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Dedicated relationship managers and round-the-clock customer
+                  care.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-12">
+          <div class="mx-auto max-w-6xl px-6 text-center">
+            <h2 class="text-2xl font-bold md:text-3xl">
+              <span style="color: black">Get Your Loan in</span>
+              <span style="color: #14b8a6">4 Easy Steps</span>
+            </h2>
+
+            <p class="mx-auto mt-2 max-w-xl text-sm text-slate-600">
+              Our streamlined process ensures you get funds quickly without any
+              hassle.
+            </p>
+
+            <div class="relative mt-12 grid gap-6 md:grid-cols-4">
+              <div
+                class="absolute left-1/2 top-7 hidden h-px w-3/4 -translate-x-1/2 bg-emerald-100 md:block"
+              ></div>
+
+              <div class="relative">
+                <div
+                  class="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-emerald-200 bg-white text-brand"
+                >
+                  1
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">Fill Application</h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Complete our simple online form in just 5 minutes.
+                </p>
+              </div>
+              <div class="relative">
+                <div
+                  class="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-emerald-200 bg-white text-brand"
+                >
+                  2
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">Instant Verification</h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Our AI system checks your documents and eligibility.
+                </p>
+              </div>
+              <div class="relative">
+                <div
+                  class="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-emerald-200 bg-white text-brand"
+                >
+                  3
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">Get Approval</h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Receive approval within 24 hours with the best rates.
+                </p>
+              </div>
+              <div class="relative">
+                <div
+                  class="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-emerald-200 bg-white text-brand"
+                >
+                  4
+                </div>
+                <h3 class="mt-4 text-sm font-semibold">Receive Funds</h3>
+                <p class="mt-2 text-xs text-slate-600">
+                  Money disbursed directly to your bank within 48 hours.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-16">
+          <div class="mx-auto max-w-5xl px-6">
+            <div
+              class="rounded-3xl border border-emerald-100 bg-emerald-50/40 px-6 py-12 text-center shadow-soft md:px-12"
+            >
+              <span
+                class="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-700"
+              >
+                <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                Limited Time Offer
+              </span>
+              <h2 class="mt-6 text-2xl font-bold md:text-3xl">
+                Ready to Transform Your
+                <span class="text-brand">Financial Future?</span>
+              </h2>
+              <p class="mx-auto mt-3 max-w-xl text-sm text-slate-600">
+                Join thousands of satisfied customers who have achieved their
+                dreams with Book Me Loan. Start your journey today with instant
+                approval and lowest rates.
+              </p>
+              <div
+                class="mt-6 flex flex-wrap items-center justify-center gap-4"
+              >
+                <button
+                  class="rounded-full bg-emerald-400 px-6 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-emerald-500"
+                >
+                  Apply Now - Get 10% Off →
+                </button>
+                <button
+                  class="rounded-full border border-emerald-200 px-6 py-2 text-sm font-semibold text-emerald-700 transition hover:border-emerald-300"
+                >
+                  Calculate EMI
+                </button>
+              </div>
+              <div
+                class="mt-6 flex flex-wrap items-center justify-center gap-6 text-[10px] uppercase tracking-wide text-emerald-700"
+              >
+                <span class="flex items-center gap-2">✓ No Hidden Charges</span>
+                <span class="flex items-center gap-2">✓ Instant Approval</span>
+                <span class="flex items-center gap-2"
+                  >✓ Flexible Repayment</span
+                >
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <site-footer></site-footer>
+    </div>
+
+    <script src="./components.js"></script>
+  </body>
+</html>

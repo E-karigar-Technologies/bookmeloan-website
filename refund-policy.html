@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Me Loan - Refund Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind = {
+        config: {
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ["Inter", "ui-sans-serif", "system-ui"],
+              },
+              colors: {
+                brand: {
+                  DEFAULT: "#14b8a6",
+                  dark: "#0f766e",
+                  soft: "#ecfdf5",
+                },
+              },
+              boxShadow: {
+                soft: "0 18px 40px rgba(16, 185, 129, 0.12)",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .grid-dots {
+        background-image: radial-gradient(
+          rgba(20, 184, 166, 0.12) 1px,
+          transparent 1px
+        );
+        background-size: 20px 20px;
+      }
+    </style>
+  </head>
+  <body class="font-sans text-slate-900 bg-white">
+    <div class="relative overflow-hidden">
+      <div
+        class="pointer-events-none absolute -top-24 -left-20 h-64 w-64 rounded-full bg-emerald-100/70 blur-3xl"
+      ></div>
+      <div
+        class="pointer-events-none absolute top-32 right-[-120px] h-96 w-96 rounded-full bg-emerald-100/70 blur-3xl"
+      ></div>
+
+      <site-navbar></site-navbar>
+
+      <main>
+        <section class="relative pb-12 section-grid pt-24 md:pt-32">
+          <div class="absolute inset-0 grid-dots opacity-70"></div>
+          <div class="relative mx-auto max-w-5xl px-6 text-center">
+            <h1
+              class="text-3xl font-extrabold text-slate-900 sm:text-4xl md:text-5xl"
+            >
+              Refund <span class="text-brand">Policy</span>
+            </h1>
+            <p
+              class="mx-auto mt-4 max-w-2xl text-sm text-slate-600 sm:text-base"
+            >
+              This policy explains how refunds are handled for applicable
+              service charges and payments.
+            </p>
+            <p class="mt-3 text-xs text-slate-500">
+              Last updated: February 3, 2026
+            </p>
+          </div>
+        </section>
+
+        <section class="py-10">
+          <div class="mx-auto max-w-5xl px-6">
+            <div
+              class="space-y-8 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm"
+            >
+              <div>
+                <h2 class="text-lg font-semibold">Refund Eligibility</h2>
+                <p class="mt-2 text-sm text-slate-600">
+                  Refunds may be applicable only for certain service fees paid
+                  directly to Book Me Loan if an application is cancelled prior
+                  to lender processing.
+                </p>
+              </div>
+
+              <div>
+                <h2 class="text-lg font-semibold">Non-Refundable Items</h2>
+                <p class="mt-2 text-sm text-slate-600">
+                  Verification charges, third-party processing fees, and
+                  lender-imposed fees are not refundable.
+                </p>
+              </div>
+
+              <div>
+                <h2 class="text-lg font-semibold">Refund Timeline</h2>
+                <p class="mt-2 text-sm text-slate-600">
+                  Approved refunds are processed within 7-10 business days and
+                  credited to the original payment method.
+                </p>
+              </div>
+
+              <div>
+                <h2 class="text-lg font-semibold">How to Request a Refund</h2>
+                <p class="mt-2 text-sm text-slate-600">
+                  Send your request with payment details, application ID, and
+                  reason to
+                  <span class="font-semibold text-emerald-700"
+                    >support@bookmeloan.com</span
+                  >.
+                </p>
+              </div>
+
+              <div
+                class="rounded-2xl border border-emerald-50 bg-emerald-50/50 p-4"
+              >
+                <p class="text-sm font-semibold">Need Help?</p>
+                <p class="mt-2 text-xs text-slate-600">
+                  Our support team is available Mon–Sat, 9:00 AM–6:00 PM.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <site-footer></site-footer>
+    </div>
+
+    <script src="./components.js"></script>
+  </body>
+</html>

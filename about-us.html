@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Book Me Loan - About Us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind = {
+        config: {
+          theme: {
+            extend: {
+              fontFamily: {
+                sans: ["Inter", "ui-sans-serif", "system-ui"],
+              },
+              colors: {
+                brand: {
+                  DEFAULT: "#14b8a6",
+                  dark: "#0f766e",
+                  soft: "#ecfdf5",
+                },
+              },
+              boxShadow: {
+                soft: "0 18px 40px rgba(16, 185, 129, 0.12)",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .grid-dots {
+        background-image: radial-gradient(
+          rgba(20, 184, 166, 0.12) 1px,
+          transparent 1px
+        );
+        background-size: 20px 20px;
+      }
+    </style>
+  </head>
+  <body class="font-sans text-slate-900 bg-white pt-28 md:pt-32">
+    <div class="relative overflow-hidden">
+      <div
+        class="pointer-events-none absolute -top-24 -left-20 h-64 w-64 rounded-full bg-emerald-100/70 blur-3xl"
+      ></div>
+      <div
+        class="pointer-events-none absolute top-32 right-[-120px] h-96 w-96 rounded-full bg-emerald-100/70 blur-3xl"
+      ></div>
+
+      <site-navbar active="about"></site-navbar>
+
+      <main>
+        <section class="relative pb-10 pt-8">
+          <div class="absolute inset-0 grid-dots opacity-70"></div>
+          <div
+            class="relative mx-auto grid max-w-6xl gap-10 px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center"
+          >
+            <div>
+              <p class="text-sm font-semibold text-emerald-600">Who we are</p>
+              <h1
+                class="mt-3 text-3xl font-extrabold text-slate-900 sm:text-4xl"
+              >
+                Simplifying your Financial future
+              </h1>
+              <p class="mt-4 text-sm text-slate-600 sm:text-base">
+                Book Me Loan is a digital loan marketplace designed to make
+                borrowing simple, fast, and transparent. We help individuals and
+                businesses find the right loan by connecting them with trusted
+                lenders — all through one easy-to-use platform.
+              </p>
+              <p class="mt-4 text-sm text-slate-600 sm:text-base">
+                Whether you’re buying a home, growing a business, funding
+                education, or managing personal expenses, we make the loan
+                journey smooth and stress-free.
+              </p>
+            </div>
+            <div class="relative">
+              <div
+                class="absolute -bottom-6 -right-6 h-24 w-24 rounded-full bg-emerald-100/80"
+              ></div>
+              <div
+                class="absolute -top-6 right-8 h-16 w-16 rounded-full bg-emerald-100/80"
+              ></div>
+              <div
+                class="overflow-hidden rounded-3xl border border-emerald-100 bg-gradient-to-br from-emerald-50 to-white shadow-soft"
+              >
+                <div
+                  class="h-56 w-full bg-[url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop')] bg-cover bg-center"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-10">
+          <div class="mx-auto max-w-6xl px-6">
+            <div class="grid gap-6 md:grid-cols-2">
+              <div
+                class="rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm"
+              >
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                    <path d="M7 9h10"></path>
+                    <path d="M7 13h6"></path>
+                  </svg>
+                </div>
+                <h3 class="mt-4 text-lg font-semibold">What We Do</h3>
+                <p class="mt-3 text-sm text-slate-600">
+                  We compare multiple loan options, guide you through
+                  eligibility, and help you apply online with minimal
+                  documentation so you can focus on what matters most.
+                </p>
+              </div>
+              <div
+                class="rounded-3xl border border-emerald-100 bg-white p-6 shadow-sm"
+              >
+                <div
+                  class="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M12 3v6"></path>
+                    <path d="M12 21v-6"></path>
+                    <path d="M4.93 4.93 9.17 9.17"></path>
+                    <path d="M14.83 14.83 19.07 19.07"></path>
+                    <path d="M3 12h6"></path>
+                    <path d="M21 12h-6"></path>
+                    <path d="M4.93 19.07 9.17 14.83"></path>
+                    <path d="M14.83 9.17 19.07 4.93"></path>
+                  </svg>
+                </div>
+                <h3 class="mt-4 text-lg font-semibold">Our Mission</h3>
+                <p class="mt-3 text-sm text-slate-600">
+                  To simplify access to loans by offering transparent, secure,
+                  and customer-first financial solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-12">
+          <div class="mx-auto max-w-6xl px-6 text-center">
+            <h2 class="text-2xl font-bold">Our Working Process</h2>
+            <div
+              class="mx-auto mt-2 h-1 w-12 rounded-full bg-emerald-500"
+            ></div>
+
+            <div class="relative mt-10 grid gap-8 md:grid-cols-5">
+              <div
+                class="absolute left-1/2 top-7 hidden h-px w-4/5 -translate-x-1/2 bg-emerald-100 md:block"
+              ></div>
+
+              <div class="relative">
+                <div
+                  class="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-emerald-200 bg-white text-emerald-600"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M3 12h18"></path>
+                    <path d="M7 12l4-4"></path>
+                    <path d="M7 12l4 4"></path>
+                  </svg>
+                </div>
+                <span
+                  class="absolute -top-1 right-14 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-semibold text-white"
+                  >1</span
+                >
+                <p class="mt-4 text-sm font-semibold">Choose</p>
+                <p class="mt-2 text-xs text-slate-600">
+                  Pick the loan type that fits your needs.
+                </p>
+              </div>
+              <div class="relative">
+                <div
+                  class="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-emerald-200 bg-white text-emerald-600"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="4"></circle>
+                    <path d="M2 12h6"></path>
+                    <path d="M16 12h6"></path>
+                  </svg>
+                </div>
+                <span
+                  class="absolute -top-1 right-14 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-semibold text-white"
+                  >2</span
+                >
+                <p class="mt-4 text-sm font-semibold">Check</p>
+                <p class="mt-2 text-xs text-slate-600">
+                  View personalized offers from lenders.
+                </p>
+              </div>
+              <div class="relative">
+                <div
+                  class="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-emerald-200 bg-white text-emerald-600"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M5 12h14"></path>
+                    <path d="M13 5l6 7-6 7"></path>
+                  </svg>
+                </div>
+                <span
+                  class="absolute -top-1 right-14 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-semibold text-white"
+                  >3</span
+                >
+                <p class="mt-4 text-sm font-semibold">Apply</p>
+                <p class="mt-2 text-xs text-slate-600">
+                  Complete a simple digital application form.
+                </p>
+              </div>
+              <div class="relative">
+                <div
+                  class="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-emerald-200 bg-white text-emerald-600"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="m9 12 2 2 4-4"></path>
+                    <circle cx="12" cy="12" r="9"></circle>
+                  </svg>
+                </div>
+                <span
+                  class="absolute -top-1 right-14 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-semibold text-white"
+                  >4</span
+                >
+                <p class="mt-4 text-sm font-semibold">Approved</p>
+                <p class="mt-2 text-xs text-slate-600">
+                  Fast-track verification for quick approval.
+                </p>
+              </div>
+              <div class="relative">
+                <div
+                  class="mx-auto flex h-14 w-14 items-center justify-center rounded-full border border-emerald-200 bg-white text-emerald-600"
+                >
+                  <svg
+                    class="h-6 w-6"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="3" y="6" width="18" height="12" rx="2"></rect>
+                    <path d="M3 10h18"></path>
+                  </svg>
+                </div>
+                <span
+                  class="absolute -top-1 right-14 flex h-5 w-5 items-center justify-center rounded-full bg-emerald-500 text-[10px] font-semibold text-white"
+                  >5</span
+                >
+                <p class="mt-4 text-sm font-semibold">Receive</p>
+                <p class="mt-2 text-xs text-slate-600">
+                  Funds disbursed directly to your bank.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-emerald-50/40 py-12">
+          <div class="mx-auto max-w-6xl px-6 text-center">
+            <h2 class="text-2xl font-bold">Why Choose Us</h2>
+            <p class="mt-2 text-sm text-emerald-700/70">
+              The advantages of choosing the leading digital marketplace.
+            </p>
+
+            <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+              <div
+                class="rounded-2xl border border-emerald-100 bg-white p-4 shadow-sm"
+              >
+                <div
+                  class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <p class="mt-3 text-sm font-semibold">Multiple Lenders</p>
+                <p class="mt-2 text-xs text-slate-600">
+                  Access a wide network of trusted partners.
+                </p>
+              </div>
+              <div
+                class="rounded-2xl border border-emerald-100 bg-white p-4 shadow-sm"
+              >
+                <div
+                  class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                    <path d="M9 9h6v6H9z"></path>
+                  </svg>
+                </div>
+                <p class="mt-3 text-sm font-semibold">Digital Process</p>
+                <p class="mt-2 text-xs text-slate-600">
+                  100% online from application to payout.
+                </p>
+              </div>
+              <div
+                class="rounded-2xl border border-emerald-100 bg-white p-4 shadow-sm"
+              >
+                <div
+                  class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M3 7h18"></path>
+                    <path d="M3 12h18"></path>
+                    <path d="M3 17h18"></path>
+                  </svg>
+                </div>
+                <p class="mt-3 text-sm font-semibold">Minimal Paperwork</p>
+                <p class="mt-2 text-xs text-slate-600">
+                  Less hassle, more speed with digital docs.
+                </p>
+              </div>
+              <div
+                class="rounded-2xl border border-emerald-100 bg-white p-4 shadow-sm"
+              >
+                <div
+                  class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <circle cx="12" cy="12" r="9"></circle>
+                    <path d="M12 7v5l3 3"></path>
+                  </svg>
+                </div>
+                <p class="mt-3 text-sm font-semibold">Transparent Terms</p>
+                <p class="mt-2 text-xs text-slate-600">
+                  No hidden fees, just clarity.
+                </p>
+              </div>
+              <div
+                class="rounded-2xl border border-emerald-100 bg-white p-4 shadow-sm"
+              >
+                <div
+                  class="mx-auto flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600"
+                >
+                  <svg
+                    class="h-5 w-5"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M12 5v14"></path>
+                    <path d="M5 12h14"></path>
+                  </svg>
+                </div>
+                <p class="mt-3 text-sm font-semibold">Dedicated Support</p>
+                <p class="mt-2 text-xs text-slate-600">
+                  Our experts are here to guide you 24/7.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="py-12">
+          <div class="mx-auto max-w-5xl px-6">
+            <div
+              class="rounded-3xl bg-[#0b2b26] px-6 py-10 text-center text-white shadow-soft md:px-10"
+            >
+              <h2 class="text-2xl font-bold">Ready to start your journey?</h2>
+              <p class="mx-auto mt-3 max-w-2xl text-sm text-emerald-100">
+                Join thousands of satisfied borrowers who found their perfect
+                financial match with Book Me Loan.
+              </p>
+              <button
+                class="mt-6 rounded-full bg-emerald-400 px-6 py-2 text-sm font-semibold text-slate-900 shadow-soft transition hover:bg-emerald-300"
+              >
+                Check Eligibility Now
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <site-footer></site-footer>
+    </div>
+
+    <script src="./components.js"></script>
+  </body>
+</html>
