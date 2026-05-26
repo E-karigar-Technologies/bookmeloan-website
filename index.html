@@ -147,35 +147,50 @@ html {
               </div>
             </div>
 
-            <div class="flex flex-wrap items-center justify-center gap-4">
-              <!-- Google Play -->
-              <a
-                href="#"
-                class="flex items-center gap-3 rounded-full bg-black px-5 py-2 text-xs font-semibold text-white hover:bg-gray-900 transition"
-              >
-                <!-- Google Play SVG Logo -->
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M3 2v20l15-10L3 2z" />
-                </svg>
+<div class="flex flex-wrap items-center justify-center gap-4" id="store-links">
+</div>
 
-                Google Play
-              </a>
+<div id="store-links" class="flex flex-wrap items-center justify-center gap-4"></div>
 
-              <!-- App Store -->
-              <a
-                href="#"
-                class="flex items-center gap-3 rounded-full bg-black px-5 py-2 text-xs font-semibold text-white hover:bg-gray-900 transition"
-              >
-                <!-- Apple SVG Logo -->
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path
-                    d="M16.365 1.43c0 1.14-.465 2.23-1.28 3.04-.86.86-2.08 1.35-3.21 1.27-.14-1.13.46-2.27 1.32-3.08.86-.81 2.22-1.42 3.17-1.23zM20.55 17.21c-.37.86-.82 1.65-1.36 2.39-.75 1.02-1.65 2.29-2.91 2.31-1.23.02-1.63-.79-3.05-.79-1.42 0-1.87.77-3.03.81-1.2.05-2.12-1.2-2.87-2.21-1.53-2.08-2.7-5.88-1.13-8.61.78-1.36 2.18-2.22 3.71-2.24 1.16-.02 2.26.81 3.05.81.78 0 2.24-1 3.78-.85.64.03 2.43.26 3.58 1.95-.09.06-2.14 1.25-2.12 3.74.02 3.01 2.63 4.01 2.66 4.02z"
-                  />
-                </svg>
+<script>
+  const appLinks = {
+    playStore: "https://play.google.com/store/apps/details?id=com.bookmeloan",
+    appStore: "#"
+  };
 
-                App Store
-              </a>
-            </div>
+  const container = document.getElementById("store-links");
+
+  // Google Play
+  const play = document.createElement("a");
+  play.href = appLinks.playStore;
+  play.target = "_blank";
+  play.className =
+    "flex items-center gap-3 rounded-full bg-black px-5 py-2 text-xs font-semibold text-white hover:bg-gray-900 transition";
+
+  play.innerHTML = `
+    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M3 2v20l15-10L3 2z" />
+    </svg>
+    Google Play
+  `;
+
+  // App Store
+  const app = document.createElement("a");
+  app.href = appLinks.appStore;
+  app.target = "_blank";
+  app.className =
+    "flex items-center gap-3 rounded-full bg-black px-5 py-2 text-xs font-semibold text-white hover:bg-gray-900 transition";
+
+  app.innerHTML = `
+    <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M16.365 1.43c0 1.14-.465 2.23-1.28 3.04-.86.86-2.08 1.35-3.21 1.27-.14-1.13.46-2.27 1.32-3.08.86-.81 2.22-1.42 3.17-1.23zM20.55 17.21c-.37.86-.82 1.65-1.36 2.39-.75 1.02-1.65 2.29-2.91 2.31-1.23.02-1.63-.79-3.05-.79-1.42 0-1.87.77-3.03.81-1.2.05-2.12-1.2-2.87-2.21-1.53-2.08-2.7-5.88-1.13-8.61.78-1.36 2.18-2.22 3.71-2.24 1.16-.02 2.26.81 3.05.81.78 0 2.24-1 3.78-.85.64.03 2.43.26 3.58 1.95-.09.06-2.14 1.25-2.12 3.74.02 3.01 2.63 4.01 2.66 4.02z"/>
+    </svg>
+    App Store
+  `;
+
+  container.appendChild(play);
+  container.appendChild(app);
+</script>
           </div>
         </section>
 

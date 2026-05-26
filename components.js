@@ -26,9 +26,13 @@ class SiteNavbar extends HTMLElement {
           </nav>
 
           <div class="flex items-center gap-3">
-            <button class="rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-white shadow-soft transition hover:bg-emerald-600">
-              Download the App
-            </button>
+        <a
+  href="https://play.google.com/store/apps/details?id=com.bookmeloan"
+  target="_blank"
+  class="rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-white shadow-soft transition hover:bg-emerald-600 inline-block"
+>
+  Download the App
+</a>
             <button
               class="flex h-9 w-9 items-center justify-center rounded-full border border-emerald-100 text-emerald-700 md:hidden"
               aria-label="Toggle menu"
