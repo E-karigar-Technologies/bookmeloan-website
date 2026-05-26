@@ -205,3 +205,64 @@ class SiteFooter extends HTMLElement {
 
 customElements.define("site-navbar", SiteNavbar);
 customElements.define("site-footer", SiteFooter);
+
+
+// ADD MULTIPLE DOCUMENT FIELDS
+function addDocumentField() {
+
+  const container = document.getElementById("document-container");
+
+  const div = document.createElement("div");
+
+  div.className =
+    "document-item rounded-2xl border border-emerald-100 bg-emerald-50/20 p-4";
+
+  div.innerHTML = `
+    <div class="grid gap-4 md:grid-cols-2">
+
+      <div>
+        <label class="mb-2 block text-sm font-medium text-emerald-700">
+          Document Type *
+        </label>
+
+        <select
+          class="w-full rounded-xl border border-emerald-100 bg-white px-4 py-3 text-sm text-slate-700 focus:border-emerald-400 focus:outline-none"
+        >
+          <option>Select Document</option>
+          <option>PAN Card</option>
+          <option>Aadhaar Card</option>
+          <option>Passport</option>
+          <option>Voter ID</option>
+          <option>Driving License</option>
+          <option>Salary Slip</option>
+          <option>Bank Statement</option>
+          <option>Property Documents</option>
+          <option>Business Proof</option>
+          <option>Utility Bill</option>
+        </select>
+      </div>
+
+      <div>
+        <label class="mb-2 block text-sm font-medium text-emerald-700">
+          Upload File *
+        </label>
+
+        <input
+          type="file"
+          class="w-full rounded-xl border border-emerald-100 bg-white p-3 text-sm text-slate-600 focus:border-emerald-400 focus:outline-none"
+        />
+      </div>
+
+    </div>
+
+    <button
+      type="button"
+      onclick="this.parentElement.remove()"
+      class="mt-4 text-xs font-medium text-red-500 hover:text-red-600"
+    >
+      Remove Document
+    </button>
+  `;
+
+  container.appendChild(div);
+}
