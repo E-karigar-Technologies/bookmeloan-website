@@ -408,122 +408,295 @@ html {
           </div>
         </section>
 <section id="loan-apply" class="bg-emerald-50/40 py-16">
-  <div class="mx-auto max-w-6xl px-6">
 
+  <div class="mx-auto max-w-3xl px-6">
+
+    <!-- HEADING -->
     <div class="text-center">
       <h2 class="text-3xl font-bold text-slate-900">
-        Apply Loan & Complete Your
+        Apply Loan & Complete
         <span class="text-emerald-500">KYC</span>
       </h2>
 
       <p class="mt-3 text-sm text-slate-600">
-        Upload your documents and get instant loan approval.
+        Complete your profile step-by-step
       </p>
     </div>
 
-    <div class="mt-10 grid gap-8 lg:grid-cols-2">
+    <!-- STEP 1 -->
+    <div id="step-1" class="loan-step mt-10 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
 
-  <!-- LEFT SIDE -->
-<div class="rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
+      <div class="flex items-center gap-3">
+        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-500">
+          💰
+        </div>
 
-  <div class="flex items-center gap-3">
-    <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-500">
-      💰
+        <div>
+          <h3 class="text-lg font-semibold text-slate-900">
+            Basic Details
+          </h3>
+
+          <p class="text-xs text-slate-500">
+            Enter your loan details
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 space-y-5">
+
+        <input
+          type="text"
+          placeholder="Full Name"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        />
+
+        <input
+          type="tel"
+          placeholder="Phone Number"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        />
+
+        <input
+          type="email"
+          placeholder="Email Address"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        />
+
+        <select
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        >
+          <option>Select Loan Type</option>
+          <option>Personal Loan</option>
+          <option>Business Loan</option>
+          <option>Home Loan</option>
+        </select>
+
+        <button
+          type="button"
+          onclick="nextStep(2)"
+          class="w-full rounded-2xl bg-emerald-400 py-3 text-sm font-semibold text-white"
+        >
+          Continue
+        </button>
+
+      </div>
+
     </div>
 
-    <div>
+    <!-- STEP 2 -->
+    <div id="step-2" class="loan-step hidden mt-10 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
+
+      <div class="flex items-center gap-3">
+        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-500">
+          🏦
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-slate-900">
+            Bank Account
+          </h3>
+
+          <p class="text-xs text-slate-500">
+            Securely link your bank account
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 space-y-5">
+
+        <input
+          type="text"
+          placeholder="Account Holder Name"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        />
+
+        <input
+          type="text"
+          placeholder="Bank Name"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        />
+
+        <input
+          type="text"
+          placeholder="Branch Name"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        />
+
+        <input
+          type="number"
+          placeholder="Account Number"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        />
+
+        <input
+          type="text"
+          placeholder="IFSC Code"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        />
+
+        <div class="flex gap-3">
+
+          <button
+            type="button"
+            onclick="prevStep(1)"
+            class="flex-1 rounded-2xl border border-emerald-200 bg-white py-3 text-sm font-semibold text-emerald-700"
+          >
+            Back
+          </button>
+
+          <button
+            type="button"
+            onclick="nextStep(3)"
+            class="flex-1 rounded-2xl bg-emerald-400 py-3 text-sm font-semibold text-white"
+          >
+            Continue
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="step-3" class="loan-step hidden mt-10 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
+
+      <div class="flex items-center gap-3">
+        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-500">
+          📸
+        </div>
+
+        <div>
+          <h3 class="text-lg font-semibold text-slate-900">
+            KYC & Verification
+          </h3>
+
+          <p class="text-xs text-slate-500">
+            Verify yourself with selfie
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8">
+
+        <div class="rounded-3xl border border-dashed border-emerald-200 bg-emerald-50/30 p-8 text-center">
+
+          <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-white text-3xl text-emerald-500">
+            👤
+          </div>
+
+          <p class="mt-4 text-sm font-semibold text-slate-800">
+            Verify Yourself
+          </p>
+
+          <p class="mt-1 text-xs text-slate-500">
+            Blink or turn head slowly
+          </p>
+
+          <button
+            class="mt-5 rounded-2xl bg-emerald-400 px-6 py-3 text-sm font-semibold text-white"
+          >
+            Open Camera
+          </button>
+
+        </div>
+
+        <div class="mt-6 flex gap-3">
+
+          <button
+            type="button"
+            onclick="prevStep(2)"
+            class="flex-1 rounded-2xl border border-emerald-200 bg-white py-3 text-sm font-semibold text-emerald-700"
+          >
+            Back
+          </button>
+
+          <button
+            type="button"
+            onclick="nextStep(4)"
+            class="flex-1 rounded-2xl bg-emerald-400 py-3 text-sm font-semibold text-white"
+          >
+            Continue
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- STEP 4 -->
+    <div id="step-4" class="loan-step hidden mt-10 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
+
       <h3 class="text-lg font-semibold text-slate-900">
-        Quick Loan Apply
+        Contact & Address
       </h3>
 
-      <p class="text-xs text-slate-500">
-        Apply instantly with minimum documentation
-      </p>
-    </div>
-  </div>
+      <div class="mt-8 space-y-5">
 
-  <form class="mt-8 space-y-5">
+        <input
+          type="text"
+          placeholder="Emergency Contact Name"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        />
 
-    <div>
-      <label class="mb-2 block text-sm font-medium text-emerald-700">
-        Full Name
-      </label>
+        <input
+          type="text"
+          placeholder="Relation"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        />
 
-      <input
-        type="text"
-        placeholder="Enter your full name"
-        class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm text-slate-700 transition focus:border-emerald-400 focus:outline-none"
-      />
-    </div>
+        <input
+          type="tel"
+          placeholder="Emergency Contact Number"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        />
 
-    <div>
-      <label class="mb-2 block text-sm font-medium text-emerald-700">
-        Phone Number
-      </label>
+        <input
+          type="text"
+          placeholder="Pincode"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        />
 
-      <input
-        type="tel"
-        placeholder="Enter your phone number"
-        class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm text-slate-700 transition focus:border-emerald-400 focus:outline-none"
-      />
-    </div>
+        <input
+          type="text"
+          placeholder="City"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        />
 
-    <div>
-      <label class="mb-2 block text-sm font-medium text-emerald-700">
-        Email Address
-      </label>
+        <textarea
+          placeholder="Full Address"
+          class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm"
+        ></textarea>
 
-      <input
-        type="email"
-        placeholder="Enter your email address"
-        class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm text-slate-700 transition focus:border-emerald-400 focus:outline-none"
-      />
-    </div>
+        <div class="flex gap-3">
 
-    <div>
-      <label class="mb-2 block text-sm font-medium text-emerald-700">
-        Select Loan Type
-      </label>
+          <button
+            type="button"
+            onclick="prevStep(3)"
+            class="flex-1 rounded-2xl border border-emerald-200 bg-white py-3 text-sm font-semibold text-emerald-700"
+          >
+            Back
+          </button>
 
-      <select
-        class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm text-slate-700 transition focus:border-emerald-400 focus:outline-none"
-      >
-        <option>Select Loan Type</option>
-        <option>Personal Loan</option>
-        <option>Home Loan</option>
-        <option>Business Loan</option>
-        <option>Vehicle Loan</option>
-      </select>
-    </div>
+          <button
+            type="button"
+            onclick="nextStep(5)"
+            class="flex-1 rounded-2xl bg-emerald-400 py-3 text-sm font-semibold text-white"
+          >
+            Continue
+          </button>
 
-    <div>
-      <label class="mb-2 block text-sm font-medium text-emerald-700">
-        Loan Amount
-      </label>
+        </div>
 
-      <input
-        type="number"
-        placeholder="Enter loan amount"
-        class="w-full rounded-2xl border border-emerald-100 bg-emerald-50/30 px-4 py-3 text-sm text-slate-700 transition focus:border-emerald-400 focus:outline-none"
-      />
+      </div>
+
     </div>
 
-    <button
-      type="submit"
-      class="w-full rounded-2xl bg-emerald-400 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-emerald-500"
-    >
-      Apply Now
-    </button>
+    <!-- STEP 5 -->
+<!-- STEP 5 -->
+<div id="step-5" class="loan-step hidden mt-10 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
 
-  </form>
-</div>
-
-    <!-- RIGHT SIDE -->
-
-<!-- RIGHT SIDE -->
-<div class="rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
-
-  <!-- HEADER -->
   <div class="flex items-center gap-3">
     <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-500">
       📄
@@ -531,193 +704,147 @@ html {
 
     <div>
       <h3 class="text-lg font-semibold text-slate-900">
-        Upload KYC Documents
+        Upload Documents
       </h3>
 
       <p class="text-xs text-slate-500">
-        Securely upload your KYC & loan verification documents
+        PAN Card, Aadhaar Card, ITR Filing & Bank Statement
       </p>
     </div>
   </div>
 
-  <!-- REQUIRED DOCUMENTS -->
-  <div class="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50/40 p-4">
+  <!-- REQUIRED DOCS -->
+  <div class="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50/30 p-4">
 
-    <div class="flex items-center justify-between">
-      <p class="text-sm font-semibold text-emerald-700">
-        Required Documents
-      </p>
-
-      <span class="rounded-full bg-emerald-500 px-3 py-1 text-[10px] font-semibold text-white">
-        Mandatory
-      </span>
-    </div>
-
-    <div class="mt-4 flex flex-wrap gap-2">
-
-      <span class="rounded-full border border-emerald-100 bg-white px-3 py-1 text-xs font-medium text-emerald-700">
-        PAN Card *
-      </span>
-
-      <span class="rounded-full border border-emerald-100 bg-white px-3 py-1 text-xs font-medium text-emerald-700">
-        Aadhaar Card *
-      </span>
-
-      <span class="rounded-full border border-emerald-100 bg-white px-3 py-1 text-xs font-medium text-emerald-700">
-        Salary Slip / Income Proof *
-      </span>
-
-    </div>
-
-    <p class="mt-3 text-[11px] text-slate-500">
-      Additional documents can be uploaded based on your loan type.
+    <p class="text-sm font-semibold text-emerald-700">
+      Required Documents
     </p>
 
-  </div>
+    <div class="mt-3 flex flex-wrap gap-2">
 
-  <!-- DOCUMENT CONTAINER -->
-  <div id="document-container" class="mt-6 space-y-5">
+      <span class="rounded-full bg-white px-3 py-1 text-xs font-medium text-emerald-700 border border-emerald-100">
+        PAN Card
+      </span>
 
-    <!-- DOCUMENT ITEM -->
-    <div class="document-item rounded-2xl border border-emerald-100 bg-emerald-50/20 p-4">
+      <span class="rounded-full bg-white px-3 py-1 text-xs font-medium text-emerald-700 border border-emerald-100">
+        Aadhaar Card
+      </span>
 
-      <div class="mb-4 flex items-center justify-between">
+      <span class="rounded-full bg-white px-3 py-1 text-xs font-medium text-emerald-700 border border-emerald-100">
+        ITR Filing
+      </span>
 
-        <div>
-          <h4 class="text-sm font-semibold text-slate-800">
-            Document Upload
-          </h4>
-
-          <p class="text-[11px] text-slate-500">
-            Select document type & upload file
-          </p>
-        </div>
-
-        <span class="rounded-full bg-white px-3 py-1 text-[10px] font-medium text-emerald-700 border border-emerald-100">
-          KYC
-        </span>
-
-      </div>
-
-      <div class="grid gap-4 md:grid-cols-2">
-
-        <!-- DOCUMENT TYPE -->
-        <div>
-          <label class="mb-2 block text-sm font-medium text-emerald-700">
-            Document Type *
-          </label>
-
-          <select
-            class="w-full rounded-2xl border border-emerald-100 bg-white px-4 py-3 text-sm text-slate-700 transition focus:border-emerald-400 focus:outline-none"
-          >
-            <option>Select Document Type</option>
-
-            <optgroup label="Mandatory Documents">
-              <option>PAN Card</option>
-              <option>Aadhaar Card</option>
-              <option>Salary Slip</option>
-              <option>Bank Statement</option>
-            </optgroup>
-
-            <optgroup label="Identity Proof">
-              <option>Passport</option>
-              <option>Voter ID</option>
-              <option>Driving License</option>
-            </optgroup>
-
-            <optgroup label="Address Proof">
-              <option>Electricity Bill</option>
-              <option>Water Bill</option>
-              <option>Gas Bill</option>
-              <option>Rent Agreement</option>
-            </optgroup>
-
-            <optgroup label="Property / Business">
-              <option>Property Documents</option>
-              <option>Business Proof</option>
-              <option>GST Certificate</option>
-              <option>ITR Documents</option>
-            </optgroup>
-
-          </select>
-        </div>
-
-        <!-- FILE UPLOAD -->
-        <div>
-          <label class="mb-2 block text-sm font-medium text-emerald-700">
-            Upload File *
-          </label>
-
-          <input
-            type="file"
-            multiple
-            class="w-full rounded-2xl border border-emerald-100 bg-white p-3 text-sm text-slate-600 transition file:mr-4 file:rounded-full file:border-0 file:bg-emerald-100 file:px-4 file:py-2 file:text-xs file:font-semibold file:text-emerald-700 hover:file:bg-emerald-200 focus:border-emerald-400 focus:outline-none"
-          />
-
-          <p class="mt-2 text-[11px] text-slate-500">
-            Upload JPG, PNG or PDF (Max 10MB)
-          </p>
-        </div>
-
-      </div>
-
-      <!-- OPTIONAL REMARK -->
-      <div class="mt-4">
-
-        <label class="mb-2 block text-sm font-medium text-emerald-700">
-          Remarks (Optional)
-        </label>
-
-        <input
-          type="text"
-          placeholder="Example: Latest salary slip"
-          class="w-full rounded-2xl border border-emerald-100 bg-white px-4 py-3 text-sm text-slate-700 transition focus:border-emerald-400 focus:outline-none"
-        />
-
-      </div>
+      <span class="rounded-full bg-white px-3 py-1 text-xs font-medium text-emerald-700 border border-emerald-100">
+        Bank Statement
+      </span>
 
     </div>
 
   </div>
 
-  <!-- ACTION BUTTONS -->
-  <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+  <div class="mt-8 space-y-5">
 
-    <button
-      type="button"
-      onclick="addDocumentField()"
-      class="flex-1 rounded-2xl border border-emerald-200 bg-white py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50"
-    >
-      + Add Another Document
-    </button>
+    <!-- PAN -->
+    <div class="rounded-2xl border border-emerald-100 bg-emerald-50/20 p-4">
 
-    <button
-      class="flex-1 rounded-2xl bg-emerald-400 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-emerald-500"
-    >
-      Upload Documents
-    </button>
+      <label class="mb-2 block text-sm font-medium text-emerald-700">
+        PAN Number
+      </label>
 
-  </div>
+      <input
+        type="text"
+        placeholder="ABCDE1234F"
+        class="w-full rounded-2xl border border-emerald-100 bg-white px-4 py-3 text-sm"
+      />
 
-  <!-- SECURITY NOTE -->
-  <div class="mt-5 rounded-2xl border border-emerald-100 bg-emerald-50/30 p-4">
+      <input
+        type="file"
+        class="mt-4 w-full rounded-2xl border border-emerald-100 bg-white p-3 text-sm"
+      />
 
-    <div class="flex items-start gap-3">
+    </div>
 
-      <div class="text-emerald-500 text-lg">
-        🔒
-      </div>
+    <!-- AADHAAR -->
+    <div class="rounded-2xl border border-emerald-100 bg-emerald-50/20 p-4">
 
-      <div>
-        <p class="text-sm font-semibold text-slate-800">
-          Your documents are secure
-        </p>
+      <label class="mb-2 block text-sm font-medium text-emerald-700">
+        Aadhaar Number
+      </label>
 
-        <p class="mt-1 text-[12px] leading-5 text-slate-500">
-          All uploaded documents are encrypted and securely stored on our server.
-          Your information is protected and only used for loan verification purposes.
-        </p>
-      </div>
+      <input
+        type="text"
+        placeholder="123412341234"
+        class="w-full rounded-2xl border border-emerald-100 bg-white px-4 py-3 text-sm"
+      />
+
+      <input
+        type="file"
+        class="mt-4 w-full rounded-2xl border border-emerald-100 bg-white p-3 text-sm"
+      />
+
+    </div>
+
+    <!-- ITR -->
+    <div class="rounded-2xl border border-emerald-100 bg-emerald-50/20 p-4">
+
+      <label class="mb-2 block text-sm font-medium text-emerald-700">
+        Upload ITR Filing
+      </label>
+
+      <input
+        type="file"
+        class="w-full rounded-2xl border border-emerald-100 bg-white p-3 text-sm"
+      />
+
+    </div>
+
+    <!-- BANK STATEMENT -->
+    <div class="rounded-2xl border border-emerald-100 bg-emerald-50/20 p-4">
+
+      <label class="mb-2 block text-sm font-medium text-emerald-700">
+        Upload Bank Statement
+      </label>
+
+      <input
+        type="file"
+        class="w-full rounded-2xl border border-emerald-100 bg-white p-3 text-sm"
+      />
+
+    </div>
+
+    <!-- ADDITIONAL DOCUMENT -->
+    <div>
+
+      <button
+        type="button"
+        onclick="addDocumentField()"
+        class="w-full rounded-2xl border border-dashed border-emerald-300 bg-white py-3 text-sm font-semibold text-emerald-700 transition hover:bg-emerald-50"
+      >
+        + Add Additional Document
+      </button>
+
+    </div>
+
+    <!-- EXTRA DOC CONTAINER -->
+    <div id="document-container" class="space-y-4"></div>
+
+    <!-- BUTTONS -->
+    <div class="flex gap-3">
+
+      <button
+        type="button"
+        onclick="prevStep(4)"
+        class="flex-1 rounded-2xl border border-emerald-200 bg-white py-3 text-sm font-semibold text-emerald-700"
+      >
+        Back
+      </button>
+
+      <button
+        type="submit"
+        class="flex-1 rounded-2xl bg-emerald-400 py-3 text-sm font-semibold text-white"
+      >
+        Continue
+      </button>
 
     </div>
 
@@ -725,9 +852,90 @@ html {
 
 </div>
 
-    </div>
+<script>
+  function addDocumentField() {
+
+    const container = document.getElementById("document-container");
+
+    const div = document.createElement("div");
+
+    div.className =
+      "rounded-2xl border border-emerald-100 bg-emerald-50/20 p-4";
+
+    div.innerHTML = `
+      <div class="grid gap-4 md:grid-cols-2">
+
+        <div>
+
+          <label class="mb-2 block text-sm font-medium text-emerald-700">
+            Document Type
+          </label>
+
+          <select
+            class="w-full rounded-2xl border border-emerald-100 bg-white px-4 py-3 text-sm"
+          >
+            <option>Select Document</option>
+            <option>Passport</option>
+            <option>Voter ID</option>
+            <option>Driving License</option>
+            <option>Salary Slip</option>
+            <option>Property Documents</option>
+            <option>Business Proof</option>
+            <option>Utility Bill</option>
+            <option>Other</option>
+          </select>
+
+        </div>
+
+        <div>
+
+          <label class="mb-2 block text-sm font-medium text-emerald-700">
+            Upload File
+          </label>
+
+          <input
+            type="file"
+            class="w-full rounded-2xl border border-emerald-100 bg-white p-3 text-sm"
+          />
+
+        </div>
+
+      </div>
+
+      <button
+        type="button"
+        onclick="this.parentElement.remove()"
+        class="mt-4 text-xs font-medium text-red-500 hover:text-red-600"
+      >
+        Remove Document
+      </button>
+    `;
+
+    container.appendChild(div);
+  }
+</script>
+
   </div>
+
 </section>
+
+<script>
+  function nextStep(step) {
+    document.querySelectorAll(".loan-step").forEach((item) => {
+      item.classList.add("hidden");
+    });
+
+    document.getElementById(`step-${step}`).classList.remove("hidden");
+  }
+
+  function prevStep(step) {
+    document.querySelectorAll(".loan-step").forEach((item) => {
+      item.classList.add("hidden");
+    });
+
+    document.getElementById(`step-${step}`).classList.remove("hidden");
+  }
+</script>
         <section class="py-16">
           <div class="mx-auto max-w-6xl px-6 text-center">
             <h2 class="text-2xl font-bold md:text-3xl">
