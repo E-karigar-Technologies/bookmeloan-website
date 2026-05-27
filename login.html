@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Auth - Book Me Loan</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-emerald-50 min-h-screen flex items-center justify-center p-4">
+
+<div class="w-full max-w-5xl bg-white rounded-3xl shadow-xl overflow-hidden grid md:grid-cols-2">
+
+  <!-- LEFT -->
+  <div class="hidden md:flex items-center justify-center bg-emerald-500 p-10">
+    <div class="text-center text-white">
+      <div class="bg-white p-3 rounded-2xl mb-6">
+        <img src="./image.png" class="h-12 w-auto mx-auto" />
+      </div>
+      <h2 class="text-2xl font-bold">Book Me Loan</h2>
+      <p class="text-sm mt-2 opacity-90">
+        Login or create account
+      </p>
+    </div>
+  </div>
+
+  <!-- RIGHT -->
+  <div class="p-8">
+
+    <!-- MOBILE LOGO -->
+    <div class="flex justify-center mb-3 md:hidden">
+      <img src="./image.png" class="h-10" />
+    </div>
+
+    <!-- TABS -->
+    <div class="flex justify-center gap-3 mb-6">
+      <button id="loginTab" onclick="showLogin()" class="px-4 py-2 text-sm rounded-full bg-emerald-500 text-white">
+        Login
+      </button>
+      <button id="signupTab" onclick="showSignup()" class="px-4 py-2 text-sm rounded-full border border-emerald-200 text-emerald-700">
+        Signup
+      </button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="loginBox">
+
+      <h2 class="text-xl font-bold text-center text-emerald-700">Login</h2>
+
+      <div id="loginEmailStep" class="mt-6 space-y-3">
+
+        <div class="relative">
+          <i class="fa-solid fa-envelope absolute left-3 top-3.5 text-gray-400"></i>
+          <input id="loginEmail" type="email" placeholder="Enter email"
+            class="w-full border rounded-xl pl-10 px-4 py-3 text-sm"/>
+        </div>
+
+        <button onclick="sendLoginOtp()"
+          class="w-full bg-emerald-500 text-white py-3 rounded-xl font-semibold">
+          Send OTP
+        </button>
+      </div>
+
+      <div id="loginOtpStep" class="mt-6 hidden space-y-3">
+
+        <div class="relative">
+          <i class="fa-solid fa-key absolute left-3 top-3.5 text-gray-400"></i>
+          <input id="loginOtp" type="text" placeholder="Enter OTP"
+            class="w-full border rounded-xl pl-10 px-4 py-3 text-sm"/>
+        </div>
+
+        <button onclick="verifyLoginOtp()"
+          class="w-full bg-emerald-500 text-white py-3 rounded-xl font-semibold">
+          Login
+        </button>
+
+        <button onclick="backLoginEmail()" class="w-full text-sm text-gray-500">
+          ← Back
+        </button>
+      </div>
+
+    </div>
+
+    <!-- SIGNUP -->
+    <div id="signupBox" class="hidden">
+
+      <h2 class="text-xl font-bold text-center text-emerald-700">Create Account</h2>
+
+      <div id="signupStep1" class="mt-6 space-y-3">
+
+        <input id="signupName" type="text" placeholder="Full Name"
+          class="w-full border rounded-xl px-4 py-3 text-sm"/>
+
+        <input id="signupEmail" type="email" placeholder="Email"
+          class="w-full border rounded-xl px-4 py-3 text-sm"/>
+
+        <button onclick="sendSignupOtp()"
+          class="w-full bg-emerald-500 text-white py-3 rounded-xl font-semibold">
+          Send OTP
+        </button>
+      </div>
+
+      <div id="signupStep2" class="mt-6 hidden space-y-3">
+
+        <input id="signupOtp" type="text" placeholder="Enter OTP"
+          class="w-full border rounded-xl px-4 py-3 text-sm"/>
+
+        <button onclick="verifySignupOtp()"
+          class="w-full bg-emerald-500 text-white py-3 rounded-xl font-semibold">
+          Create Account
+        </button>
+
+        <button onclick="backSignup()" class="w-full text-sm text-gray-500">
+          ← Back
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+
+const BASE_URL = "http://localhost:5010";
+
+/* ================= CACHE DOM (FAST) ================= */
+const el = {
+  loginEmail: document.getElementById("loginEmail"),
+  loginOtp: document.getElementById("loginOtp"),
+  loginEmailStep: document.getElementById("loginEmailStep"),
+  loginOtpStep: document.getElementById("loginOtpStep"),
+
+  signupName: document.getElementById("signupName"),
+  signupEmail: document.getElementById("signupEmail"),
+  signupOtp: document.getElementById("signupOtp"),
+  signupStep1: document.getElementById("signupStep1"),
+  signupStep2: document.getElementById("signupStep2"),
+
+  loginBox: document.getElementById("loginBox"),
+  signupBox: document.getElementById("signupBox"),
+};
+
+/* ================= DUMMY MODE ================= */
+const dummyUsers = [
+  { email: "guptarishabh792@gmail.com", otp: "123456" }
+];
+
+/* ================= UI HELPERS ================= */
+const show = (e) => e.classList.remove("hidden");
+const hide = (e) => e.classList.add("hidden");
+
+/* ================= LOGIN OTP (FAST UX) ================= */
+function sendLoginOtp() {
+  const email = el.loginEmail.value;
+  if (!email) return alert("Enter email");
+
+  // ⚡ INSTANT UI (NO WAIT)
+  hide(el.loginEmailStep);
+  show(el.loginOtpStep);
+
+  // ⚡ API in background (no blocking)
+  fetch(`${BASE_URL}/user/send-otp`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email })
+  }).catch(() => {});
+
+  console.log("Dummy OTP: 123456");
+}
+
+/* ================= VERIFY LOGIN ================= */
+function verifyLoginOtp() {
+  const email = el.loginEmail.value;
+  const otp = el.loginOtp.value;
+
+  // ⚡ FAST DUMMY CHECK FIRST
+  if (dummyUsers.some(u => u.email === email && u.otp === otp)) {
+    localStorage.setItem("isLoggedIn", "true");
+    window.location.href = "index.html#loan-apply";
+    return;
+  }
+
+  // API fallback
+  fetch(`${BASE_URL}/user/verify-otp`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, otp })
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data?.token) {
+      localStorage.setItem("isLoggedIn", "true");
+      window.location.href = "index.html#loan-apply";
+    } else {
+      alert("Invalid OTP");
+    }
+  })
+  .catch(() => alert("Server error"));
+}
+
+/* ================= SIGNUP ================= */
+function sendSignupOtp() {
+  const name = el.signupName.value;
+  const email = el.signupEmail.value;
+
+  if (!name || !email) return alert("Fill all fields");
+
+  // ⚡ INSTANT STEP CHANGE
+  hide(el.signupStep1);
+  show(el.signupStep2);
+
+  // background API call
+  fetch(`${BASE_URL}/user/send-otp`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email })
+  }).catch(() => {});
+
+  console.log("Signup OTP: 123456");
+}
+
+/* ================= VERIFY SIGNUP ================= */
+function verifySignupOtp() {
+  const name = el.signupName.value;
+  const email = el.signupEmail.value;
+  const otp = el.signupOtp.value;
+
+  if (otp === "123456") {
+    localStorage.setItem("isLoggedIn", "true");
+    window.location.href = "index.html#loan-apply";
+    return;
+  }
+
+  fetch(`${BASE_URL}/user/verify-otp`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, otp })
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data?.token) {
+      localStorage.setItem("isLoggedIn", "true");
+      window.location.href = "index.html#loan-apply";
+    } else {
+      alert("Invalid OTP");
+    }
+  })
+  .catch(() => alert("Server error"));
+}
+
+/* ================= BACK ================= */
+function backLoginEmail() {
+  hide(el.loginOtpStep);
+  show(el.loginEmailStep);
+}
+
+function backSignup() {
+  hide(el.signupStep2);
+  show(el.signupStep1);
+}
+
+/* ================= TAB SWITCH ================= */
+function showLogin() {
+  show(el.loginBox);
+  hide(el.signupBox);
+}
+
+function showSignup() {
+  show(el.signupBox);
+  hide(el.loginBox);
+}
+
+</script>
+
+</body>
+</html>

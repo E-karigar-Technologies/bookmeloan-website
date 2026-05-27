@@ -1,3 +1,12 @@
+<script>
+window.addEventListener("load", () => {
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  if (!isLoggedIn) {
+    document.getElementById("loan-apply").style.display = "none";
+  }
+});
+</script>
 <!doctype html>
 <html lang="en">
   <head>
@@ -101,12 +110,38 @@ html {
             </div>
 
             <div class="flex flex-wrap items-center justify-center gap-4">
-         <a
-  href="#loan-apply"
-  class="rounded-full bg-emerald-400 px-6 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-emerald-500 inline-block"
->
+<a href="#" onclick="checkLogin(event)"
+   class="rounded-full bg-emerald-400 px-6 py-2 text-sm font-semibold text-white shadow-soft transition hover:bg-emerald-500 inline-block">
   Apply for Loan Now →
 </a>
+
+<script>
+function checkLogin(e) {
+  e.preventDefault();
+
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  if (isLoggedIn === "true") {
+    document.querySelector("#loan-apply").scrollIntoView({ behavior: "smooth" });
+  } else {
+    window.location.href = "login.html";
+  }
+}
+</script>
+
+<script>
+function checkLogin(e) {
+  e.preventDefault();
+
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+  if (isLoggedIn === "true") {
+    document.querySelector("#loan-apply").scrollIntoView({ behavior: "smooth" });
+  } else {
+    window.location.href = "login.html";
+  }
+}
+</script>
 
               <button
                 class="rounded-full border border-emerald-200 px-6 py-2 text-sm font-semibold text-emerald-700 transition hover:border-emerald-300"
@@ -114,7 +149,7 @@ html {
                 Check Eligibility
               </button>
 
-              <!-- Naya button -->
+             
             </div>
 
             <!-- Stats section numbers -->
@@ -190,6 +225,8 @@ html {
 
   container.appendChild(play);
   container.appendChild(app);
+
+  
 </script>
           </div>
         </section>
@@ -968,6 +1005,28 @@ html {
   </div>
 
 </section>
+
+<script>
+  window.addEventListener("load", function () {
+
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    if (window.location.hash === "#loan-apply") {
+
+      if (isLoggedIn === "true") {
+
+        document.getElementById("loan-apply")
+          .scrollIntoView({ behavior: "smooth" });
+
+      } else {
+
+        // not logged in → send to login
+        window.location.href = "login.html";
+      }
+    }
+
+  });
+</script>
 <script>
 
   function goToStep(step) {

@@ -11,86 +11,116 @@ class SiteNavbar extends HTMLElement {
     }
 
     document.body.classList.add("pt-0", "md:pt-0");
+
     this.innerHTML = `
       <header class="fixed top-2 left-1/2 z-50 w-[90vw] max-w-[1680px] -translate-x-1/2">
         <div class="relative flex items-center justify-between gap-4 rounded-full border border-emerald-100 bg-white/80 px-4 py-3 shadow-sm backdrop-blur md:px-6">
+
           <div class="flex items-center gap-3 text-emerald-700">
             <img src="./image.png" alt="Book Me Loan" class="h-9 w-auto" />
           </div>
 
           <nav class="hidden items-center gap-6 text-xs font-semibold md:flex">
-            <a data-nav="home" class="text-slate-600 transition hover:text-emerald-700" href="./index.html">Home</a>
-            <a data-nav="about" class="text-slate-600 transition hover:text-emerald-700" href="./about-us.html">About Us</a>
-            <a data-nav="services" class="text-slate-600 transition hover:text-emerald-700" href="./services.html">Services</a>
-            <a data-nav="contact" class="text-slate-600 transition hover:text-emerald-700" href="./contact-us.html">Contact Us</a>
+            <a data-nav="home" href="./index.html" class="text-slate-600 hover:text-emerald-700">Home</a>
+            <a data-nav="about" href="./about-us.html" class="text-slate-600 hover:text-emerald-700">About Us</a>
+            <a data-nav="services" href="./services.html" class="text-slate-600 hover:text-emerald-700">Services</a>
+            <a data-nav="contact" href="./contact-us.html" class="text-slate-600 hover:text-emerald-700">Contact Us</a>
           </nav>
 
           <div class="flex items-center gap-3">
-        <a
-  href="https://play.google.com/store/apps/details?id=com.bookmeloan"
-  target="_blank"
-  class="rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-white shadow-soft transition hover:bg-emerald-600 inline-block"
->
-  Download the App
-</a>
+
+            <!-- APP BUTTON -->
+            <a
+              href="https://play.google.com/store/apps/details?id=com.bookmeloan"
+              target="_blank"
+              class="rounded-full bg-emerald-500 px-4 py-2 text-xs font-semibold text-white shadow-soft transition hover:bg-emerald-600"
+            >
+              Download App
+            </a>
+
+            <!-- LOGOUT BUTTON (HIDDEN BY DEFAULT) -->
+            <button
+              id="logoutBtn"
+              class="hidden rounded-full border border-red-200 px-4 py-2 text-xs font-semibold text-red-500 hover:bg-red-50"
+            >
+              Logout
+            </button>
+
+            <!-- MOBILE MENU -->
             <button
               class="flex h-9 w-9 items-center justify-center rounded-full border border-emerald-100 text-emerald-700 md:hidden"
-              aria-label="Toggle menu"
-              aria-expanded="false"
               data-menu-button
             >
-              <span class="flex flex-col gap-1">
-                <span class="h-0.5 w-4 rounded-full bg-emerald-700"></span>
-                <span class="h-0.5 w-4 rounded-full bg-emerald-700"></span>
-                <span class="h-0.5 w-4 rounded-full bg-emerald-700"></span>
-              </span>
+              ☰
             </button>
+
           </div>
 
-          <div
-            class="absolute left-0 top-full mt-3 hidden w-full rounded-3xl border border-emerald-100 bg-white/95 p-4 text-emerald-700 shadow-lg backdrop-blur md:hidden"
-            data-menu-panel
-          >
+          <!-- MOBILE MENU -->
+          <div class="absolute left-0 top-full mt-3 hidden w-full rounded-3xl border border-emerald-100 bg-white/95 p-4 shadow-lg md:hidden"
+               data-menu-panel>
+
             <nav class="grid gap-3 text-sm font-semibold">
-              <a data-nav="home" class="rounded-full px-4 py-2 text-emerald-700/80 transition hover:bg-emerald-50 hover:text-emerald-700" href="./index.html">Home</a>
-              <a data-nav="about" class="rounded-full px-4 py-2 text-emerald-700/80 transition hover:bg-emerald-50 hover:text-emerald-700" href="./about-us.html">About Us</a>
-              <a data-nav="services" class="rounded-full px-4 py-2 text-emerald-700/80 transition hover:bg-emerald-50 hover:text-emerald-700" href="./services.html">Services</a>
-              <a data-nav="contact" class="rounded-full px-4 py-2 text-emerald-700/80 transition hover:bg-emerald-50 hover:text-emerald-700" href="./contact-us.html">Contact Us</a>
+              <a href="./index.html">Home</a>
+              <a href="./about-us.html">About Us</a>
+              <a href="./services.html">Services</a>
+              <a href="./contact-us.html">Contact Us</a>
+
+              <button
+                id="logoutBtnMobile"
+                class="hidden mt-2 rounded-xl bg-red-500 px-4 py-2 text-white text-sm"
+              >
+                Logout
+              </button>
             </nav>
           </div>
+
         </div>
       </header>
     `;
 
+    // ACTIVE LINK
     const active = this.getAttribute("active");
-    if (!active) return;
-
-    const links = this.querySelectorAll(`[data-nav="${active}"]`);
-    links.forEach((link) => {
-      link.classList.remove("text-slate-600");
-      link.classList.remove("text-emerald-700/80");
-      link.classList.add("text-emerald-700");
-    });
-
-    const menuButton = this.querySelector("[data-menu-button]");
-    const menuPanel = this.querySelector("[data-menu-panel]");
-    if (menuButton && menuPanel) {
-      menuButton.addEventListener("click", () => {
-        const isOpen = !menuPanel.classList.contains("hidden");
-        menuPanel.classList.toggle("hidden", isOpen);
-        menuButton.setAttribute("aria-expanded", String(!isOpen));
-      });
-
-      menuPanel.querySelectorAll("a").forEach((link) => {
-        link.addEventListener("click", () => {
-          menuPanel.classList.add("hidden");
-          menuButton.setAttribute("aria-expanded", "false");
-        });
+    if (active) {
+      const links = this.querySelectorAll(`[data-nav="${active}"]`);
+      links.forEach(link => {
+        link.classList.add("text-emerald-700");
       });
     }
+
+    // MOBILE MENU
+    const menuBtn = this.querySelector("[data-menu-button]");
+    const menuPanel = this.querySelector("[data-menu-panel]");
+
+    if (menuBtn && menuPanel) {
+      menuBtn.addEventListener("click", () => {
+        menuPanel.classList.toggle("hidden");
+      });
+    }
+
+    // ✅ LOGIN CHECK
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    const logoutBtn = this.querySelector("#logoutBtn");
+    const logoutBtnMobile = this.querySelector("#logoutBtnMobile");
+
+    if (isLoggedIn === "true") {
+      logoutBtn?.classList.remove("hidden");
+      logoutBtnMobile?.classList.remove("hidden");
+    }
+
+    // ✅ LOGOUT FUNCTION
+    const logout = () => {
+      localStorage.removeItem("isLoggedIn");
+      window.location.href = "index.html";
+    };
+
+    logoutBtn?.addEventListener("click", logout);
+    logoutBtnMobile?.addEventListener("click", logout);
   }
 }
 
+customElements.define("site-navbar", SiteNavbar);
 class SiteFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
