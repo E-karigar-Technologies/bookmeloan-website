@@ -88,19 +88,23 @@
 
       <h2 class="text-xl font-bold text-center text-emerald-700">Create Account</h2>
 
-      <div id="signupStep1" class="mt-6 space-y-3">
+<div id="signupStep1" class="mt-6 space-y-3">
 
-        <input id="signupName" type="text" placeholder="Full Name"
-          class="w-full border rounded-xl px-4 py-3 text-sm"/>
+  <input id="signupName" type="text" placeholder="Full Name"
+    class="w-full border rounded-xl px-4 py-3 text-sm"/>
 
-        <input id="signupEmail" type="email" placeholder="Email"
-          class="w-full border rounded-xl px-4 py-3 text-sm"/>
+  <input id="signupEmail" type="email" placeholder="Email"
+    class="w-full border rounded-xl px-4 py-3 text-sm"/>
 
-        <button onclick="sendSignupOtp()"
-          class="w-full bg-emerald-500 text-white py-3 rounded-xl font-semibold">
-          Send OTP
-        </button>
-      </div>
+  <input id="signupMobile" type="tel" placeholder="Mobile Number"
+    class="w-full border rounded-xl px-4 py-3 text-sm"/>
+
+  <button onclick="sendSignupOtp()"
+    class="w-full bg-emerald-500 text-white py-3 rounded-xl font-semibold">
+    Send OTP
+  </button>
+
+</div>
 
       <div id="signupStep2" class="mt-6 hidden space-y-3">
 
@@ -122,7 +126,7 @@
   </div>
 </div>
 
-<script>
+<!-- <script>
 
 const BASE_URL = "http://localhost:5010";
 
@@ -138,7 +142,7 @@ const el = {
   signupOtp: document.getElementById("signupOtp"),
   signupStep1: document.getElementById("signupStep1"),
   signupStep2: document.getElementById("signupStep2"),
-
+signupMobile: document.getElementById("signupMobile"),
   loginBox: document.getElementById("loginBox"),
   signupBox: document.getElementById("signupBox"),
 };
@@ -176,14 +180,6 @@ function verifyLoginOtp() {
   const email = el.loginEmail.value;
   const otp = el.loginOtp.value;
 
-  // ⚡ FAST DUMMY CHECK FIRST
-  if (dummyUsers.some(u => u.email === email && u.otp === otp)) {
-    localStorage.setItem("isLoggedIn", "true");
-    window.location.href = "index.html#loan-apply";
-    return;
-  }
-
-  // API fallback
   fetch(`${BASE_URL}/user/verify-otp`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -191,20 +187,29 @@ function verifyLoginOtp() {
   })
   .then(r => r.json())
   .then(data => {
-    if (data?.token) {
-      localStorage.setItem("isLoggedIn", "true");
-      window.location.href = "index.html#loan-apply";
-    } else {
-      alert("Invalid OTP");
+
+    if (!data?.token) {
+      return alert("Invalid OTP");
     }
+
+    // 🔥 CHECK APPROVAL STATUS
+    if (data.user.status !== "APPROVED") {
+      alert("Account pending admin approval");
+      return;
+    }
+
+    localStorage.setItem("isLoggedIn", "true");
+    localStorage.setItem("token", data.token);
+
+    window.location.href = "index.html#loan-apply";
   })
   .catch(() => alert("Server error"));
 }
-
 /* ================= SIGNUP ================= */
 function sendSignupOtp() {
   const name = el.signupName.value;
   const email = el.signupEmail.value;
+  const mobile = el.signupMobile.value;
 
   if (!name || !email) return alert("Fill all fields");
 
@@ -222,35 +227,30 @@ function sendSignupOtp() {
   console.log("Signup OTP: 123456");
 }
 
-/* ================= VERIFY SIGNUP ================= */
 function verifySignupOtp() {
   const name = el.signupName.value;
   const email = el.signupEmail.value;
+  const mobile = el.signupMobile.value;
   const otp = el.signupOtp.value;
 
-  if (otp === "123456") {
-    localStorage.setItem("isLoggedIn", "true");
-    window.location.href = "index.html#loan-apply";
-    return;
-  }
-
-  fetch(`${BASE_URL}/user/verify-otp`, {
+  fetch(`${BASE_URL}/user/signup-verify`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, otp })
+    body: JSON.stringify({ name, email, mobile, otp })
   })
   .then(r => r.json())
   .then(data => {
-    if (data?.token) {
-      localStorage.setItem("isLoggedIn", "true");
-      window.location.href = "index.html#loan-apply";
-    } else {
-      alert("Invalid OTP");
+
+    if (!data?.success) {
+      return alert("Invalid OTP");
     }
+
+    alert("Signup successful. Waiting for admin approval.");
+
+    window.location.href = "login.html";
   })
   .catch(() => alert("Server error"));
 }
-
 /* ================= BACK ================= */
 function backLoginEmail() {
   hide(el.loginOtpStep);
@@ -273,7 +273,119 @@ function showSignup() {
   hide(el.loginBox);
 }
 
-</script>
+</script> -->
 
+
+
+<script>
+
+const el = {
+  loginEmail: document.getElementById("loginEmail"),
+  loginOtp: document.getElementById("loginOtp"),
+  loginEmailStep: document.getElementById("loginEmailStep"),
+  loginOtpStep: document.getElementById("loginOtpStep"),
+
+  signupName: document.getElementById("signupName"),
+  signupEmail: document.getElementById("signupEmail"),
+  signupMobile: document.getElementById("signupMobile"),
+  signupOtp: document.getElementById("signupOtp"),
+  signupStep1: document.getElementById("signupStep1"),
+  signupStep2: document.getElementById("signupStep2"),
+
+  loginBox: document.getElementById("loginBox"),
+  signupBox: document.getElementById("signupBox"),
+};
+
+/* ================= HELPERS ================= */
+const show = (e) => e.classList.remove("hidden");
+const hide = (e) => e.classList.add("hidden");
+
+/* ================= LOGIN SEND OTP ================= */
+function sendLoginOtp() {
+
+  const email = el.loginEmail.value.trim();
+
+  if (!email) {
+    return alert("Enter email");
+  }
+
+  hide(el.loginEmailStep);
+  show(el.loginOtpStep);
+
+  console.log("Dummy OTP: 123456");
+  alert("Demo OTP is 123456");
+}
+
+/* ================= LOGIN VERIFY ================= */
+function verifyLoginOtp() {
+
+  const otp = el.loginOtp.value.trim();
+
+  if (otp !== "123456") {
+    return alert("Invalid OTP");
+  }
+
+  localStorage.setItem("isLoggedIn", "true");
+
+  window.location.href = "index.html#loan-apply";
+}
+
+/* ================= SIGNUP SEND OTP ================= */
+function sendSignupOtp() {
+
+  const name = el.signupName.value.trim();
+  const email = el.signupEmail.value.trim();
+  const mobile = el.signupMobile.value.trim();
+
+  if (!name || !email || !mobile) {
+    return alert("Fill all fields");
+  }
+
+  hide(el.signupStep1);
+  show(el.signupStep2);
+
+  console.log("Dummy OTP: 123456");
+  alert("Demo OTP is 123456");
+}
+
+/* ================= SIGNUP VERIFY ================= */
+function verifySignupOtp() {
+
+  const otp = el.signupOtp.value.trim();
+
+  if (otp !== "123456") {
+    return alert("Invalid OTP");
+  }
+
+  localStorage.setItem("isLoggedIn", "true");
+
+  alert("Account created successfully");
+
+  window.location.href = "index.html#loan-apply";
+}
+
+/* ================= BACK ================= */
+function backLoginEmail() {
+  hide(el.loginOtpStep);
+  show(el.loginEmailStep);
+}
+
+function backSignup() {
+  hide(el.signupStep2);
+  show(el.signupStep1);
+}
+
+/* ================= TABS ================= */
+function showLogin() {
+  show(el.loginBox);
+  hide(el.signupBox);
+}
+
+function showSignup() {
+  show(el.signupBox);
+  hide(el.loginBox);
+}
+
+</script>
 </body>
 </html>
