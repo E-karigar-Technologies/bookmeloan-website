@@ -20,9 +20,7 @@
         <img src="./image.png" class="h-12 w-auto mx-auto" />
       </div>
       <h2 class="text-2xl font-bold">Book Me Loan</h2>
-      <p class="text-sm mt-2 opacity-90">
-        Login or create account
-      </p>
+      <p class="text-sm mt-2 opacity-90">Login or create account</p>
     </div>
   </div>
 
@@ -36,10 +34,13 @@
 
     <!-- TABS -->
     <div class="flex justify-center gap-3 mb-6">
-      <button id="loginTab" onclick="showLogin()" class="px-4 py-2 text-sm rounded-full bg-emerald-500 text-white">
+      <button id="loginTab" onclick="showLogin()"
+        class="px-4 py-2 text-sm rounded-full bg-emerald-500 text-white">
         Login
       </button>
-      <button id="signupTab" onclick="showSignup()" class="px-4 py-2 text-sm rounded-full border border-emerald-200 text-emerald-700">
+
+      <button id="signupTab" onclick="showSignup()"
+        class="px-4 py-2 text-sm rounded-full border border-emerald-200 text-emerald-700">
         Signup
       </button>
     </div>
@@ -49,11 +50,14 @@
 
       <h2 class="text-xl font-bold text-center text-emerald-700">Login</h2>
 
+      <!-- EMAIL OR MOBILE -->
       <div id="loginEmailStep" class="mt-6 space-y-3">
 
         <div class="relative">
-          <i class="fa-solid fa-envelope absolute left-3 top-3.5 text-gray-400"></i>
-          <input id="loginEmail" type="email" placeholder="Enter email"
+          <i class="fa-solid fa-user absolute left-3 top-3.5 text-gray-400"></i>
+
+          <input id="loginIdentifier" type="text"
+            placeholder="Enter Email or Mobile"
             class="w-full border rounded-xl pl-10 px-4 py-3 text-sm"/>
         </div>
 
@@ -63,11 +67,14 @@
         </button>
       </div>
 
+      <!-- OTP -->
       <div id="loginOtpStep" class="mt-6 hidden space-y-3">
 
         <div class="relative">
           <i class="fa-solid fa-key absolute left-3 top-3.5 text-gray-400"></i>
-          <input id="loginOtp" type="text" placeholder="Enter OTP"
+
+          <input id="loginOtp" type="text"
+            placeholder="Enter OTP"
             class="w-full border rounded-xl pl-10 px-4 py-3 text-sm"/>
         </div>
 
@@ -88,27 +95,30 @@
 
       <h2 class="text-xl font-bold text-center text-emerald-700">Create Account</h2>
 
-<div id="signupStep1" class="mt-6 space-y-3">
+      <!-- STEP 1 -->
+      <div id="signupStep1" class="mt-6 space-y-3">
 
-  <input id="signupName" type="text" placeholder="Full Name"
-    class="w-full border rounded-xl px-4 py-3 text-sm"/>
+        <input id="signupName" type="text" placeholder="Full Name"
+          class="w-full border rounded-xl px-4 py-3 text-sm"/>
 
-  <input id="signupEmail" type="email" placeholder="Email"
-    class="w-full border rounded-xl px-4 py-3 text-sm"/>
+        <input id="signupEmail" type="email" placeholder="Email"
+          class="w-full border rounded-xl px-4 py-3 text-sm"/>
 
-  <input id="signupMobile" type="tel" placeholder="Mobile Number"
-    class="w-full border rounded-xl px-4 py-3 text-sm"/>
+        <input id="signupMobile" type="tel" placeholder="Mobile Number"
+          class="w-full border rounded-xl px-4 py-3 text-sm"/>
 
-  <button onclick="sendSignupOtp()"
-    class="w-full bg-emerald-500 text-white py-3 rounded-xl font-semibold">
-    Send OTP
-  </button>
+        <button onclick="sendSignupOtp()"
+          class="w-full bg-emerald-500 text-white py-3 rounded-xl font-semibold">
+          Send OTP
+        </button>
 
-</div>
+      </div>
 
+      <!-- STEP 2 -->
       <div id="signupStep2" class="mt-6 hidden space-y-3">
 
-        <input id="signupOtp" type="text" placeholder="Enter OTP"
+        <input id="signupOtp" type="text"
+          placeholder="Enter OTP"
           class="w-full border rounded-xl px-4 py-3 text-sm"/>
 
         <button onclick="verifySignupOtp()"
@@ -126,164 +136,12 @@
   </div>
 </div>
 
-<!-- <script>
-
-const BASE_URL = "http://localhost:5010";
-
-/* ================= CACHE DOM (FAST) ================= */
-const el = {
-  loginEmail: document.getElementById("loginEmail"),
-  loginOtp: document.getElementById("loginOtp"),
-  loginEmailStep: document.getElementById("loginEmailStep"),
-  loginOtpStep: document.getElementById("loginOtpStep"),
-
-  signupName: document.getElementById("signupName"),
-  signupEmail: document.getElementById("signupEmail"),
-  signupOtp: document.getElementById("signupOtp"),
-  signupStep1: document.getElementById("signupStep1"),
-  signupStep2: document.getElementById("signupStep2"),
-signupMobile: document.getElementById("signupMobile"),
-  loginBox: document.getElementById("loginBox"),
-  signupBox: document.getElementById("signupBox"),
-};
-
-/* ================= DUMMY MODE ================= */
-const dummyUsers = [
-  { email: "guptarishabh792@gmail.com", otp: "123456" }
-];
-
-/* ================= UI HELPERS ================= */
-const show = (e) => e.classList.remove("hidden");
-const hide = (e) => e.classList.add("hidden");
-
-/* ================= LOGIN OTP (FAST UX) ================= */
-function sendLoginOtp() {
-  const email = el.loginEmail.value;
-  if (!email) return alert("Enter email");
-
-  // ⚡ INSTANT UI (NO WAIT)
-  hide(el.loginEmailStep);
-  show(el.loginOtpStep);
-
-  // ⚡ API in background (no blocking)
-  fetch(`${BASE_URL}/user/send-otp`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email })
-  }).catch(() => {});
-
-  console.log("Dummy OTP: 123456");
-}
-
-/* ================= VERIFY LOGIN ================= */
-function verifyLoginOtp() {
-  const email = el.loginEmail.value;
-  const otp = el.loginOtp.value;
-
-  fetch(`${BASE_URL}/user/verify-otp`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ email, otp })
-  })
-  .then(r => r.json())
-  .then(data => {
-
-    if (!data?.token) {
-      return alert("Invalid OTP");
-    }
-
-    // 🔥 CHECK APPROVAL STATUS
-    if (data.user.status !== "APPROVED") {
-      alert("Account pending admin approval");
-      return;
-    }
-
-    localStorage.setItem("isLoggedIn", "true");
-    localStorage.setItem("token", data.token);
-
-    window.location.href = "index.html#loan-apply";
-  })
-  .catch(() => alert("Server error"));
-}
-/* ================= SIGNUP ================= */
-function sendSignupOtp() {
-  const name = el.signupName.value;
-  const email = el.signupEmail.value;
-  const mobile = el.signupMobile.value;
-
-  if (!name || !email) return alert("Fill all fields");
-
-  // ⚡ INSTANT STEP CHANGE
-  hide(el.signupStep1);
-  show(el.signupStep2);
-
-  // background API call
-  fetch(`${BASE_URL}/user/send-otp`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email })
-  }).catch(() => {});
-
-  console.log("Signup OTP: 123456");
-}
-
-function verifySignupOtp() {
-  const name = el.signupName.value;
-  const email = el.signupEmail.value;
-  const mobile = el.signupMobile.value;
-  const otp = el.signupOtp.value;
-
-  fetch(`${BASE_URL}/user/signup-verify`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, mobile, otp })
-  })
-  .then(r => r.json())
-  .then(data => {
-
-    if (!data?.success) {
-      return alert("Invalid OTP");
-    }
-
-    alert("Signup successful. Waiting for admin approval.");
-
-    window.location.href = "login.html";
-  })
-  .catch(() => alert("Server error"));
-}
-/* ================= BACK ================= */
-function backLoginEmail() {
-  hide(el.loginOtpStep);
-  show(el.loginEmailStep);
-}
-
-function backSignup() {
-  hide(el.signupStep2);
-  show(el.signupStep1);
-}
-
-/* ================= TAB SWITCH ================= */
-function showLogin() {
-  show(el.loginBox);
-  hide(el.signupBox);
-}
-
-function showSignup() {
-  show(el.signupBox);
-  hide(el.loginBox);
-}
-
-</script> -->
-
-
-
 <script>
 
 const el = {
-  loginEmail: document.getElementById("loginEmail"),
   loginOtp: document.getElementById("loginOtp"),
-  loginEmailStep: document.getElementById("loginEmailStep"),
   loginOtpStep: document.getElementById("loginOtpStep"),
+  loginEmailStep: document.getElementById("loginEmailStep"),
 
   signupName: document.getElementById("signupName"),
   signupEmail: document.getElementById("signupEmail"),
@@ -296,27 +154,48 @@ const el = {
   signupBox: document.getElementById("signupBox"),
 };
 
-/* ================= HELPERS ================= */
 const show = (e) => e.classList.remove("hidden");
 const hide = (e) => e.classList.add("hidden");
 
-/* ================= LOGIN SEND OTP ================= */
+/* ================= TABS ================= */
+function showLogin() {
+  show(el.loginBox);
+  hide(el.signupBox);
+
+  document.getElementById("loginTab").classList.add("bg-emerald-500","text-white");
+  document.getElementById("loginTab").classList.remove("border","border-emerald-200","text-emerald-700");
+
+  document.getElementById("signupTab").classList.remove("bg-emerald-500","text-white");
+  document.getElementById("signupTab").classList.add("border","border-emerald-200","text-emerald-700");
+}
+
+function showSignup() {
+  show(el.signupBox);
+  hide(el.loginBox);
+
+  document.getElementById("signupTab").classList.add("bg-emerald-500","text-white");
+  document.getElementById("signupTab").classList.remove("border","border-emerald-200","text-emerald-700");
+
+  document.getElementById("loginTab").classList.remove("bg-emerald-500","text-white");
+  document.getElementById("loginTab").classList.add("border","border-emerald-200","text-emerald-700");
+}
+
+/* ================= LOGIN ================= */
 function sendLoginOtp() {
 
-  const email = el.loginEmail.value.trim();
+  const identifier = document.getElementById("loginIdentifier").value.trim();
 
-  if (!email) {
-    return alert("Enter email");
+  if (!identifier) {
+    return alert("Enter Email or Mobile");
   }
 
   hide(el.loginEmailStep);
   show(el.loginOtpStep);
 
-  console.log("Dummy OTP: 123456");
   alert("Demo OTP is 123456");
+  console.log("OTP: 123456");
 }
 
-/* ================= LOGIN VERIFY ================= */
 function verifyLoginOtp() {
 
   const otp = el.loginOtp.value.trim();
@@ -330,7 +209,7 @@ function verifyLoginOtp() {
   window.location.href = "index.html#loan-apply";
 }
 
-/* ================= SIGNUP SEND OTP ================= */
+/* ================= SIGNUP ================= */
 function sendSignupOtp() {
 
   const name = el.signupName.value.trim();
@@ -344,11 +223,9 @@ function sendSignupOtp() {
   hide(el.signupStep1);
   show(el.signupStep2);
 
-  console.log("Dummy OTP: 123456");
   alert("Demo OTP is 123456");
 }
 
-/* ================= SIGNUP VERIFY ================= */
 function verifySignupOtp() {
 
   const otp = el.signupOtp.value.trim();
@@ -375,17 +252,10 @@ function backSignup() {
   show(el.signupStep1);
 }
 
-/* ================= TABS ================= */
-function showLogin() {
-  show(el.loginBox);
-  hide(el.signupBox);
-}
-
-function showSignup() {
-  show(el.signupBox);
-  hide(el.loginBox);
-}
+/* default */
+showLogin();
 
 </script>
+
 </body>
 </html>

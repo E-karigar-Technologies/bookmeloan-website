@@ -444,11 +444,10 @@ function checkLogin(e) {
             </div>
           </div>
         </section>
-<section id="loan-apply" class="bg-emerald-50/40 py-16">
+<!-- <section id="loan-apply" class="bg-emerald-50/40 py-16">
 
   <div class="mx-auto max-w-3xl px-6">
 
-    <!-- HEADING -->
     <div class="text-center">
       <h2 class="text-3xl font-bold text-slate-900">
         Apply Loan & Complete
@@ -460,7 +459,6 @@ function checkLogin(e) {
       </p>
     </div>
 
-    <!-- STEP 1 -->
     <div id="step-1" class="loan-step mt-10 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
 
       <div class="flex items-center gap-3">
@@ -520,7 +518,7 @@ function checkLogin(e) {
 
     </div>
 
-    <!-- STEP 2 -->
+
     <div id="step-2" class="loan-step hidden mt-10 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
 
       <div class="flex items-center gap-3">
@@ -541,8 +539,6 @@ function checkLogin(e) {
 
       <div class="mt-8 space-y-5">
 
-        <!-- EMPLOYMENT TYPE -->
-<!-- EMPLOYMENT TYPE -->
 <div>
 
   <label class="mb-3 block text-sm font-medium text-emerald-700">
@@ -634,7 +630,6 @@ function checkLogin(e) {
 
     </div>
 
-    <!-- STEP 3 -->
     <div id="step-3" class="loan-step hidden mt-10 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
 
       <div class="flex items-center gap-3">
@@ -709,7 +704,6 @@ function checkLogin(e) {
 
     </div>
 
-    <!-- STEP 4 -->
     <div id="step-4" class="loan-step hidden mt-10 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
 
       <div class="flex items-center gap-3">
@@ -776,7 +770,6 @@ function checkLogin(e) {
 
     </div>
 
-    <!-- STEP 5 -->
     <div id="step-5" class="loan-step hidden mt-10 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
 
       <h3 class="text-lg font-semibold text-slate-900">
@@ -844,7 +837,6 @@ function checkLogin(e) {
 
     </div>
 
-    <!-- STEP 6 -->
     <div id="step-6" class="loan-step hidden mt-10 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm">
 
       <div class="flex items-center gap-3">
@@ -863,7 +855,6 @@ function checkLogin(e) {
         </div>
       </div>
 
-      <!-- REQUIRED DOCS -->
       <div class="mt-6 rounded-2xl border border-emerald-100 bg-emerald-50/30 p-4">
 
         <p class="text-sm font-semibold text-emerald-700">
@@ -894,7 +885,6 @@ function checkLogin(e) {
 
       <div class="mt-8 space-y-5">
 
-        <!-- PAN -->
         <div class="rounded-2xl border border-emerald-100 bg-emerald-50/20 p-4">
 
           <label class="mb-2 block text-sm font-medium text-emerald-700">
@@ -914,7 +904,6 @@ function checkLogin(e) {
 
         </div>
 
-        <!-- AADHAAR -->
         <div class="rounded-2xl border border-emerald-100 bg-emerald-50/20 p-4">
 
           <label class="mb-2 block text-sm font-medium text-emerald-700">
@@ -934,7 +923,6 @@ function checkLogin(e) {
 
         </div>
 
-        <!-- ITR -->
         <div class="rounded-2xl border border-emerald-100 bg-emerald-50/20 p-4">
 
           <label class="mb-2 block text-sm font-medium text-emerald-700">
@@ -948,7 +936,6 @@ function checkLogin(e) {
 
         </div>
 
-        <!-- BANK STATEMENT -->
         <div class="rounded-2xl border border-emerald-100 bg-emerald-50/20 p-4">
 
           <label class="mb-2 block text-sm font-medium text-emerald-700">
@@ -962,7 +949,6 @@ function checkLogin(e) {
 
         </div>
 
-        <!-- ADDITIONAL DOCUMENT -->
         <div>
 
           <button
@@ -975,10 +961,8 @@ function checkLogin(e) {
 
         </div>
 
-        <!-- EXTRA DOC CONTAINER -->
         <div id="document-container" class="space-y-4"></div>
 
-        <!-- BUTTONS -->
         <div class="flex gap-3">
 
           <button
@@ -1004,8 +988,92 @@ function checkLogin(e) {
 
   </div>
 
-</section>
+</section> -->
 
+
+
+<section id="loan-apply" class="bg-emerald-50/40 py-16">
+
+  <div class="mx-auto max-w-2xl px-6">
+
+    <!-- HEADING -->
+    <div class="text-center">
+      <h2 class="text-3xl font-bold text-slate-900">
+        Document Upload
+      </h2>
+
+      <p class="mt-3 text-sm text-slate-600">
+        Please upload required KYC documents only
+      </p>
+    </div>
+
+    <!-- UPLOAD FORM -->
+    <form class="mt-10 rounded-3xl border border-emerald-100 bg-white p-8 shadow-sm space-y-6">
+
+      <!-- Required Docs -->
+      <div class="rounded-2xl border border-emerald-100 bg-emerald-50/30 p-4">
+        <p class="text-sm font-semibold text-emerald-700">
+          Required Documents
+        </p>
+
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="rounded-full bg-white px-3 py-1 text-xs border text-emerald-700">PAN Card</span>
+          <span class="rounded-full bg-white px-3 py-1 text-xs border text-emerald-700">Aadhaar Card</span>
+          <span class="rounded-full bg-white px-3 py-1 text-xs border text-emerald-700">Bank Statement</span>
+        </div>
+      </div>
+
+      <!-- PAN -->
+      <div>
+        <label class="block text-sm font-medium text-emerald-700 mb-2">
+          PAN Card
+        </label>
+
+        <input type="file"
+          class="w-full rounded-2xl border border-emerald-100 bg-white p-3 text-sm" />
+      </div>
+
+      <!-- Aadhaar -->
+      <div>
+        <label class="block text-sm font-medium text-emerald-700 mb-2">
+          Aadhaar Card
+        </label>
+
+        <input type="file"
+          class="w-full rounded-2xl border border-emerald-100 bg-white p-3 text-sm" />
+      </div>
+
+      <!-- Bank Statement -->
+      <div>
+        <label class="block text-sm font-medium text-emerald-700 mb-2">
+          Bank Statement
+        </label>
+
+        <input type="file"
+          class="w-full rounded-2xl border border-emerald-100 bg-white p-3 text-sm" />
+      </div>
+
+      <!-- Optional Document -->
+      <div>
+        <label class="block text-sm font-medium text-emerald-700 mb-2">
+          Additional Document (Optional)
+        </label>
+
+        <input type="file"
+          class="w-full rounded-2xl border border-dashed border-emerald-300 bg-white p-3 text-sm" />
+      </div>
+
+      <!-- Submit -->
+      <button type="submit"
+        class="w-full rounded-2xl bg-emerald-400 py-3 text-sm font-semibold text-white">
+        Submit Documents
+      </button>
+
+    </form>
+
+  </div>
+
+</section>
 <script>
   window.addEventListener("load", function () {
 
