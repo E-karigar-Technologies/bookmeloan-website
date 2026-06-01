@@ -137,7 +137,31 @@
 </div>
 
 <script>
-const BASE_URL = "http://localhost:5010/api/user";
+const BASE_URL = "http://localhost:5010";
+
+function getLoginPayload(identifier) {
+  const value = identifier.trim();
+  const isPhoneNumber = /^\+?\d{7,15}$/.test(value);
+
+  return isPhoneNumber ? { mobile: value } : { email: value };
+}
+
+function storeAuthSession(data) {
+  const payload = data?.data || data || {};
+  const token = payload.token || data?.token;
+  const user = payload.user || data?.user;
+
+  if (token) {
+    localStorage.setItem("token", token);
+    localStorage.setItem("isLoggedIn", "true");
+  }
+
+  if (user) {
+    localStorage.setItem("user", JSON.stringify(user));
+  }
+
+  return token;
+}
 
 const el = {
   loginOtp: document.getElementById("loginOtp"),
@@ -227,13 +251,13 @@ async function sendLoginOtp() {
 
   try {
 
-    const res = await fetch(`${BASE_URL}/send-otp`, {
+    const res = await fetch(`${BASE_URL}/api/user/send-otp`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        email: identifier
+        ...getLoginPayload(identifier)
       })
     });
 
@@ -278,7 +302,7 @@ async function verifyLoginOtp() {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        email: identifier,
+        ...getLoginPayload(identifier),
         otp: otp
       })
     });
@@ -291,15 +315,10 @@ async function verifyLoginOtp() {
       return alert(data.message || "Invalid OTP");
     }
 
-    /* SAVE LOGIN */
-    localStorage.setItem("isLoggedIn", "true");
+    const token = storeAuthSession(data);
 
-    if (data.token) {
-      localStorage.setItem("token", data.token);
-    }
-
-    if (data.user) {
-      localStorage.setItem("user", JSON.stringify(data.user));
+    if (!token) {
+      return alert("Login succeeded, but no token was returned by the server.");
     }
 
     alert("Login Successful");
@@ -325,7 +344,7 @@ async function sendSignupOtp() {
 
   try {
 
-    const res = await fetch(`${BASE_URL}/send-otp`, {
+    const res = await fetch(`${BASE_URL}/api/user/send-otp`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -369,7 +388,7 @@ async function verifySignupOtp() {
   try {
 
     /* VERIFY OTP */
-    const verifyRes = await fetch(`${BASE_URL}/verify-otp`, {
+    const verifyRes = await fetch(`${BASE_URL}/api/user/verify-otp`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -389,7 +408,7 @@ async function verifySignupOtp() {
     }
 
     /* CREATE USER */
-    const createRes = await fetch(`${BASE_URL}`, {
+    const createRes = await fetch(`${BASE_URL}/api/user/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
